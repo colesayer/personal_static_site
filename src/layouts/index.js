@@ -5,37 +5,31 @@ import Helmet from 'react-helmet'
 
 import './index.scss'
 
+const ListLink = props =>
+  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+    <Link to={props.to} style={{ textShadow: `none`, backgroundImage: `none`}}>
+      {props.children}
+    </Link>
+  </li>
+
 const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Cole Shapiro
-        </Link>
-      </h1>
-    </div>
+  <div >
+    <header style={{ marginBottom: `1.5rem`, backgroundColor: `black`}}>
+      <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
+        <h3 style={{ display: `inline` }}>Cole Shapiro</h3>
+      </Link>
+    <ul style={{ listStyle: `none`, float: `right` }}>
+      <ListLink to="/about/">About</ListLink>
+      <ListLink to="/projects/">Projects</ListLink>
+      <ListLink to="/contact/">Contact</ListLink>
+      <ListLink to="/blog/">Blog</ListLink>
+    </ul>
+    </header>
   </div>
 )
 
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <div style={{ margin: `0 auto`, maxWidth: 800, padding: `1.25rem 1rem` }}>
     <Helmet
       title="Cole Shapiro"
       meta={[

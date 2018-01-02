@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 
 // import '../css/index.css'; // add some style if you want!
 
-export default function Index({ data }) {
+export default function BlogPage({ data }) {
   const { edges: posts } = data.allMarkdownRemark;
   return (
     <div className="blog-posts">
