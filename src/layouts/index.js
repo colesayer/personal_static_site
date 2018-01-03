@@ -1,30 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
+import Header from './header.js'
 import Helmet from 'react-helmet'
+import FaGithub from 'react-icons/lib/fa/github'
+import FaLinkedin from 'react-icons/lib/fa/linkedin'
+import MdColorLens from 'react-icons/lib/md/color-lens'
 
 import './index.scss'
 
-const ListLink = props =>
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
-    <Link to={props.to} style={{ textShadow: `none`, backgroundImage: `none`}}>
-      {props.children}
-    </Link>
-  </li>
-
-const Header = () => (
-  <div >
-    <header style={{ marginBottom: `1.5rem`, backgroundColor: `black`}}>
-      <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-        <h3 style={{ display: `inline` }}>Cole Shapiro</h3>
-      </Link>
-    <ul style={{ listStyle: `none`, float: `right` }}>
-      <ListLink to="/about/">About</ListLink>
-      <ListLink to="/projects/">Projects</ListLink>
-      <ListLink to="/contact/">Contact</ListLink>
-      <ListLink to="/blog/">Blog</ListLink>
-    </ul>
-    </header>
+const Footer = () => (
+  <div style={{ margin: `0 auto`, textAlign: `center`}}>
+    <footer>
+      <a href="https://www.linkedin.com/in/cole-shapiro-54646b9/" style={{ textShadow: `none`, backgroundImage: `none`, padding: `.5rem` }}><FaLinkedin /></a>
+      <a href="https://github.com/colesayer" target="_blank" style={{ textShadow: `none`, backgroundImage: `none`, padding: `.5rem` }}><FaGithub /></a>
+      <a href="http://www.jttnyc.com/6953,6954,6964" target="_blank" style={{ textShadow: `none`, backgroundImage: `none`, padding: `.5rem` }}><MdColorLens /></a>
+    </footer>
   </div>
 )
 
@@ -48,6 +39,7 @@ const TemplateWrapper = ({ children }) => (
     >
       {children()}
     </div>
+    <Footer />
   </div>
 )
 

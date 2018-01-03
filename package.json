@@ -13,6 +13,7 @@
     "gatsby-source-filesystem": "^1.5.11",
     "gatsby-transformer-remark": "^1.7.26",
     "react-helmet": "^5.2.0",
+    "react-icons": "^2.2.7",
     "typography-theme-github": "^0.15.10"
   },
   "keywords": [
