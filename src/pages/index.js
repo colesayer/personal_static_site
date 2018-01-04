@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import AboutContainer from '../components/aboutContainer.js'
-import ProjectsContainer from '../components/projectsContainer.js'
-import BlogContainer from '../components/blogContainer.js'
+import AboutContainer from '../components/about/aboutContainer.js'
+import ProjectsContainer from '../components/projects/projectsContainer.js'
+import BlogContainer from '../components/blog/blogContainer.js'
 
 const IndexPage = ({data}) => {
   console.log("in index", data)
