@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
 import * as THREE from 'three';
-
-
-import './index.scss'
+import randomColor from 'randomcolor'
 
 class Header extends Component{
  //  constructor(props) {
@@ -73,11 +71,12 @@ class Header extends Component{
  //  }
 
   render(){
+    const color = randomColor({luminosity: 'light'})
     return(
       <div >
-        <header style={{ marginBottom: `1.5rem`}}>
-          <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-            <h1 style={{ textAlign: `center` }}>COLE SHAPIRO</h1>
+        <header className="title" style={{ marginBottom: `1.5rem`}}>
+          <Link to="/" style={{ textShadow: `none`, backgroundImage: `none`, textDecoration: 'none' }}>
+            <h1 style={{ textAlign: `center`, color: `${color}`, textShadow: '10px 10px 10px rgba(0, 0, 0, 0.25)' }}>COLE SHAPIRO</h1>
           </Link>
         </header>
       </div>

@@ -3,17 +3,42 @@ import Link from "gatsby-link";
 import Helmet from "react-helmet";
 import randomColor from 'randomcolor'
 import BlogList from './blogList.js'
+import styled from "styled-components";
 
-import './blog.scss'
+const Section = styled.div`
+ background-color: rgba(0, 0, 0, 0.1);
+ padding: 10px;
+ margin-top: 5%;
+ h3 {
+   margin: 0 0 10px;
+ }
+`;
+
+const BlogWrapper = styled.div`
+display: flex;
+flex-flow: row wrap;
+align-items: center;
+justify-content: center;
+p {
+   width: 100%;
+   text-align: center;
+   margin: 20px 0 0;
+   font-weight: bold;
+   font-size: 24px;
+ }
+`;
 
 class BlogContainer extends Component{
   render(){
     const { edges: posts } = this.props.data.allMarkdownRemark;
     const color = randomColor({luminosity: 'light'})
     return(
-      <div className="blog-posts" style={{borderColor: `${color}`}}>
-        <BlogList posts={posts}/>
-      </div>
+      <Section>
+        <BlogWrapper style={{borderColor: `${color}`}}>
+          <h3 style={{color: `${color}`}}>Words I've Written:</h3>
+          <BlogList posts={posts}/>
+        </BlogWrapper>
+      </Section>
     )
   }
 }

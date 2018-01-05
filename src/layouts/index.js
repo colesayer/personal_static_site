@@ -6,8 +6,9 @@ import Helmet from 'react-helmet'
 import FaGithub from 'react-icons/lib/fa/github'
 import FaLinkedin from 'react-icons/lib/fa/linkedin'
 import MdColorLens from 'react-icons/lib/md/color-lens'
+import styled from "styled-components";
 
-import './index.scss'
+import './index.css'
 
 const Footer = () => (
   <div style={{ margin: `0 auto`, textAlign: `center`}}>
