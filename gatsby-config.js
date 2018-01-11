@@ -19,11 +19,5 @@ module.exports = {
        plugins: [] // just in case those previously mentioned remark plugins sound cool :)
      }
    },
-   {
-     resolve: `gatsby-plugin-typography`,
-     options: {
-       pathToConfigModule: `src/utils/typography.js`,
-     }
-   },
   ],
 }

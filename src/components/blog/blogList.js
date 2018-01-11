@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const StyledList = styled.ul`
   list-style: none;
-  padding: 0;
+  padding: 5px;
   margin: 0;
   display: flex;
   flex-flow: row wrap;
@@ -20,8 +20,7 @@ const StyledList = styled.ul`
     padding: 10px;
     margin: 0 -10px;
     flex: 1;
-    padding: 10px;
-    box-sizing: border-box;
+    padding: 5px;
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     margin: 10px;
@@ -35,12 +34,11 @@ const StyledList = styled.ul`
       transition: all 0.3s;
     }
     span:first-child {
-      font-size: 18px;
-      font-weight: bold;
+      font-size: 14px;
       padding-bottom: 5px;
     }
     span:last-child {
-      font-size: 14px;
+      font-size: 10px;
     }
   }
 `;

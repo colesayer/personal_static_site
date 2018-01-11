@@ -1,12 +1,12 @@
 html {
-  font-family: sans-serif;
+  font-family: Georgia, serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 body {
   margin: 0;
   background-color: #605;
-  animation: background-shimmer 40s forwards infinite;
+  animation: background-shimmer 20s forwards infinite;
 }
 
 @keyframes background-shimmer {
@@ -207,17 +207,7 @@ html {
 *:after {
   box-sizing: inherit;
 }
-body {
-  color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
-  font-weight: normal;
-  word-wrap: break-word;
-  font-kerning: normal;
-  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
-  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
-  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
-  font-feature-settings: "kern", "liga", "clig", "calt";
-}
+s
 img {
   max-width: 100%;
   margin-left: 0;

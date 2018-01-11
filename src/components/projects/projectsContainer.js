@@ -6,10 +6,11 @@ import styled from "styled-components";
 
 const Section = styled.div`
  background-color: rgba(0, 0, 0, 0.1);
- padding: 10px;
+ padding: 5px;
  margin-top: 5%;
  h3 {
    margin: 0 0 10px;
+   font-weight: lighter;
  }
 `;
 
@@ -29,7 +30,7 @@ p {
 
 const StyledList = styled.ul`
   list-style: none;
-  padding: 0;
+  padding: 5px;
   margin: 0;
   display: flex;
   flex-flow: row wrap;
@@ -40,10 +41,9 @@ const StyledList = styled.ul`
     display: flex;
     flex-direction: column;
     transition: all 0.3s;
-    padding: 10px;
     margin: 0 -10px;
     flex: 1;
-    padding: 10px;
+    padding: 5px;
     box-sizing: border-box;
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -74,24 +74,16 @@ class ProjectsContainer extends Component{
     backgroundColor: ""
   }
 
-  changeBoxFeatures = (e) => {
-    console.log("changebboxfeatures", e.target.style.backgroundColor)
-    const bgColor = e.target.style.backgroundColor
-    // this.setState({
-    //   backgroundColor: randomColor({luminosity: 'dark'})
-    // })
-  }
 
   render(){
     const color = randomColor({luminosity: 'light', count: 5})
-    const randomBackgroundColor = randomColor({luminosity: 'dark'})
     return(
       <Section>
         <ProjectWrapper style={{borderColor: `${color[0]}`}}>
-          <h3 style={{color: `${color[0]}`}}>Things I've made:</h3>
+          <h3 style={{color: `${color[0]}`, fontSize: '18px'}}>Things I've made:</h3>
           <StyledList>
             <li>
-              <Link to="/projects/my-life-socks" onMouseEnter={this.changeBoxFeatures} style={{color: `${color[1]}`}}>
+              <Link to="/projects/my-life-socks" style={{color: `${color[1]}`}}>
                 <span>
                   <h3>My Life Socks</h3>
                 </span>

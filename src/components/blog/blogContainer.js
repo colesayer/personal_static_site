@@ -6,7 +6,7 @@ import BlogList from './blogList.js'
 import styled from "styled-components";
 
 const Section = styled.div`
- background-color: rgba(0, 0, 0, 0.1);
+background-color: rgba(0, 0, 0, 0.1);
  padding: 10px;
  margin-top: 5%;
  h3 {
@@ -35,7 +35,7 @@ class BlogContainer extends Component{
     return(
       <Section>
         <BlogWrapper style={{borderColor: `${color}`}}>
-          <h3 style={{color: `${color}`}}>Words I've Written:</h3>
+          <h3 style={{color: `${color}`, fontWeight: `lighter`, fontSize: '18px'}}>Words I've Written:</h3>
           <BlogList posts={posts}/>
         </BlogWrapper>
       </Section>

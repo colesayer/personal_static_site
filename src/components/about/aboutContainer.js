@@ -5,9 +5,24 @@ import randomColor from 'randomcolor'
 import styled from "styled-components";
 
 const AboutWrapper = styled.div`
+display: inline-block;
+flex-flow: row wrap;
+align-items: center;
+justify-content: center;
+textAlign: center;
 h3{
   font-size: 18px;
+  font-family: Ariel, sans-serif;
+  font-weight: lighter;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  textAlign: center;
 }
+`;
+
+const Section = styled.div`
+
 `;
 
 class AboutContainer extends Component{
