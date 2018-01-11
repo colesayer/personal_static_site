@@ -24,7 +24,7 @@ class Header extends Component{
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(
-      75,
+      50,
       width / height,
       0.1,
       1000
@@ -33,7 +33,7 @@ class Header extends Component{
 
 
 
-    camera.position.z = 4
+    camera.position.z = 7
     renderer.setClearColor(0x000000, 0)
     renderer.setSize(width, height)
 
