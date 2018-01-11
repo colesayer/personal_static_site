@@ -3,6 +3,7 @@ import Link from 'gatsby-link';
 import randomColor from 'randomcolor'
 import {initTitle} from './initTitle.js'
 import * as THREE from 'three';
+var OrbitControls = require('three-orbit-controls')(THREE)
 
 class Header extends Component{
   constructor(props) {
@@ -45,7 +46,7 @@ class Header extends Component{
 
     //ADD TITLE
     this.titleGroup = new THREE.Group()
-    this.titleColors = randomColor({luminosity: 'light', count: 11})
+    this.titleColors = randomColor({luminosity: 'bright', count: 11})
     initTitle(this.THREE, this.titleGroup, this.titleColors)
     this.scene.add(this.titleGroup)
 
@@ -56,6 +57,8 @@ class Header extends Component{
     this.pointLight = new THREE.PointLight( 0xffffff, 1 )
     this.pointLight.position.set( -3, 7, 5 )
     this.scene.add(this.pointLight)
+
+    var controls = new OrbitControls(this.camera, this.mount)
 
     this.start()
   }
