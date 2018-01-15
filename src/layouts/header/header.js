@@ -38,7 +38,13 @@ class Header extends Component{
       0.1,
       1000
     )
-    this.camera.position.z = 18
+    console.log("set camera", this.mount.clientWidth)
+    if(this.mount.clientWidth < 500){
+      this.camera.position.z = 20
+    } else {
+      this.camera.position.z = 15
+    }
+
 
     //KEYLIGHT
     this.keyLight = new THREE.AmbientLight(0xffffff, 0.5)
@@ -118,7 +124,7 @@ class Header extends Component{
     const color = randomColor({luminosity: 'light'})
     return(
       <div
-       style={{ height: `20rem`}}
+       style={{ height: `12rem`, width: `100%`}}
        ref={(mount) => { this.mount = mount }}
       />
     )
