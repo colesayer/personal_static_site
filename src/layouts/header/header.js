@@ -40,7 +40,7 @@ class Header extends Component{
     )
     console.log("set camera", this.mount.clientWidth)
     if(this.mount.clientWidth < 500){
-      this.camera.position.z = 20
+      this.camera.position.z = 22
     } else {
       this.camera.position.z = 15
     }

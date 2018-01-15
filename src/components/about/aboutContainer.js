@@ -47,8 +47,6 @@ class AboutContainer extends Component{
            <span style={{color: `${color[4]}`}}>o</span>
            <span style={{color: `${color[5]}`}}>o</span>
            <span style={{color: `${color[6]}`}}>o</span>
-           <span style={{color: `${color[7]}`}}>o</span>
-           <span style={{color: `${color[8]}`}}>o</span>
            <span style={{color: `${color[9]}`}}>v</span>
            <span style={{color: `${color[10]}`}}>e{" "}</span>
            <span style={{color: `${color[11]}`}}>Three.js</span>
