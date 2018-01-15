@@ -15,7 +15,7 @@ class Header extends Component{
    this.animate = this.animate.bind(this)
    this.THREE = THREE
    this.addTitle = this.addTitle.bind(this)
-   this.rotateLetters = this.rotateLetters.bind(this)
+  //  this.rotateLetters = this.rotateLetters.bind(this)
  }
 
   componentDidMount(){
@@ -65,6 +65,7 @@ class Header extends Component{
 
 
     this.scene.add(this.titleGroup)
+    setTimeout(() => { console.log(this.titleGroup) }, 3000)
     this.start()
   }
 
@@ -90,7 +91,6 @@ class Header extends Component{
 
     this.renderScene()
     TWEEN.update()
-    this.rotateLetters()
     this.frameId = window.requestAnimationFrame(this.animate)
   }
 
@@ -99,19 +99,19 @@ class Header extends Component{
   }
 
   addTitle(){
-    for(let i = 0; i < this.objFiles.length; i++){
-      let objFile = this.objFiles[i]
-      let titleColor = this.titleColors[i]
+    for(let idx = 0; idx < this.objFiles.length; idx++){
+      let objFile = this.objFiles[idx]
+      let titleColor = this.titleColors[idx]
 
-      initTitle(this.THREE, objFile, titleColor, this.titleGroup )
+      initTitle(this.THREE, objFile, titleColor, this.titleGroup, idx )
     }
   }
 
-  rotateLetters(){
-    this.titleGroup.children.forEach(function(child){
-      
-    })
-  }
+  // rotateLetters(){
+  //   this.titleGroup.children.forEach(function(child){
+  //     child.rotateY(.02)
+  //   })
+  // }
 
 
   render(){
