@@ -1,16 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from "styled-components";
+import ThreeTitle from '../components/three/threeTitle.js'
 
 const IndexPage = ({data}) => {
   console.log("in index", data)
   return(
-    <div style={{ margin: `0 auto`, textAlign: `center`}}>
-    <Link to="/about" style={{ padding: `5%`}}>About</Link>
-    <Link to="/blog" style={{ padding: `5%`}}>Blog</Link>
-    <Link to="/projects" style={{ padding: `5%`}}>Projects</Link>
-
-    </div>
+    <ThreeTitle />
   )
 
 }

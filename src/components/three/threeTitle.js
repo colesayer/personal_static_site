@@ -6,7 +6,7 @@ import * as THREE from 'three';
 import TWEEN from 'tween.js'
 var OrbitControls = require('three-orbit-controls')(THREE)
 
-class Header extends Component{
+class ThreeTitle extends Component{
   constructor(props) {
    super(props)
 
@@ -161,4 +161,4 @@ class Header extends Component{
   }
 }
 
-export default Header
+export default ThreeTitle

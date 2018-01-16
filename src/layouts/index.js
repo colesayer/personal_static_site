@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
-import Header from './header/header.js'
 import Helmet from 'react-helmet'
 import FaGithub from 'react-icons/lib/fa/github'
 import FaLinkedin from 'react-icons/lib/fa/linkedin'
@@ -12,6 +11,14 @@ import randomColor from 'randomcolor'
 import './index.css'
 
 const linkColor = randomColor({luminosity: 'dark', hue: 'blue'})
+
+const Header = () => (
+  <div style={{ margin: `0 auto`, textAlign: `center`}}>
+    <Link to="/about" style={{ padding: `5%`}}>About</Link>
+    <Link to="/blog" style={{ padding: `5%`}}>Blog</Link>
+    <Link to="/projects" style={{ padding: `5%`}}>Projects</Link>
+  </div>
+)
 
 const Footer = () => (
   <div style={{ margin: `0 auto`, textAlign: `center`}}>
@@ -33,6 +40,8 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
 
+    <Header />
+
     <div
       style={{
         margin: '0 auto',
@@ -43,7 +52,7 @@ const TemplateWrapper = ({ children }) => (
     >
       {children()}
     </div>
-    <Header />
+
     <Footer />
   </div>
 )
