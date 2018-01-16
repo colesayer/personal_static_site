@@ -11,7 +11,7 @@ import randomColor from 'randomcolor'
 
 import './index.css'
 
-const linkColor = randomColor({luminosity: 'light', hue: 'blue'})
+const linkColor = randomColor({luminosity: 'dark', hue: 'blue'})
 
 const Footer = () => (
   <div style={{ margin: `0 auto`, textAlign: `center`}}>
@@ -24,7 +24,7 @@ const Footer = () => (
 )
 
 const TemplateWrapper = ({ children }) => (
-  <div style={{ margin: `0 auto`, maxWidth: 800, padding: `1.25rem 1rem` }}>
+  <div style={{ margin: `0 auto`, maxWidth: '100vw', maxHeight: '100vh', padding: `1.25rem 1rem` }}>
     <Helmet
       title="Cole Shapiro"
       meta={[
@@ -32,7 +32,7 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header />
+
     <div
       style={{
         margin: '0 auto',
@@ -43,6 +43,7 @@ const TemplateWrapper = ({ children }) => (
     >
       {children()}
     </div>
+    <Header />
     <Footer />
   </div>
 )

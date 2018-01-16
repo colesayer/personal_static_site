@@ -1,64 +1,64 @@
 import TWEEN from 'tween.js'
 
 export function initTranslateTween(object){
-  let randomNumber1 = (Math.random() * (2 - (-2)) + (-2))
-  let randomNumber2 = generateRandomNumber(randomNumber1)
-  let randomNumber3 = generateRandomNumber(randomNumber2)
-  let randomNumber4 = generateRandomNumber(randomNumber3)
-  let randomNumber5 = generateRandomNumber(randomNumber4)
-  let randomNumber6 = generateRandomNumber(randomNumber5)
+  let randomNumber1 = generateRandomNumber()
+  let randomNumber2 = generateRandomNumber()
+  let randomNumber3 = generateRandomNumber()
+  let randomNumber4 = generateRandomNumber()
+  let randomNumber5 = generateRandomNumber()
+  let randomNumber6 = generateRandomNumber()
 
   let originalPosition = object.position.y
 
   console.log("RANDOM NUMBER", randomNumber1, randomNumber2)
 
   let tween = new TWEEN.Tween(object.position)
-    .to({ x: object.position.x, y: randomNumber1, z: object.position.z }, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.Out)
+    .to({ x: object.position.x, y: randomNumber1, z: object.position.z }, 1000)
+    .easing(TWEEN.Easing.Quadratic.Out)
 
   let returnTween = new TWEEN.Tween(object.position)
     .to({ y: originalPosition}, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.In)
+    .easing(TWEEN.Easing.Bounce.Out)
 
   let tween2 = new TWEEN.Tween(object.position)
-    .to({ x: object.position.x, y: randomNumber2, z: object.position.z }, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.Out)
+    .to({ x: object.position.x, y: randomNumber2, z: object.position.z }, 1000)
+    .easing(TWEEN.Easing.Quadratic.Out)
 
   let returnTween2 = new TWEEN.Tween(object.position)
     .to({ y: originalPosition}, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.In)
+    .easing(TWEEN.Easing.Bounce.Out)
 
   let tween3 = new TWEEN.Tween(object.position)
-    .to({ x: object.position.x, y: randomNumber3, z: object.position.z }, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.Out)
+    .to({ x: object.position.x, y: randomNumber3, z: object.position.z }, 1000)
+    .easing(TWEEN.Easing.Quadratic.Out)
 
   let returnTween3 = new TWEEN.Tween(object.position)
     .to({ y: originalPosition}, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.In)
+    .easing(TWEEN.Easing.Bounce.Out)
 
   let tween4 = new TWEEN.Tween(object.position)
-    .to({ x: object.position.x, y: randomNumber4, z: object.position.z }, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.Out)
+    .to({ x: object.position.x, y: randomNumber4, z: object.position.z }, 1000)
+    .easing(TWEEN.Easing.Quadratic.Out)
 
   let returnTween4 = new TWEEN.Tween(object.position)
     .to({ y: originalPosition}, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.In)
+    .easing(TWEEN.Easing.Bounce.Out)
 
   let tween5 = new TWEEN.Tween(object.position)
-    .to({ x: object.position.x, y: randomNumber5, z: object.position.z }, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.Out)
+    .to({ x: object.position.x, y: randomNumber5, z: object.position.z }, 1000)
+    .easing(TWEEN.Easing.Quadratic.Out)
 
   let returnTween5 = new TWEEN.Tween(object.position)
       .to({ y: originalPosition}, 2500)
-      .easing(TWEEN.Easing.Sinusoidal.In)
+      .easing(TWEEN.Easing.Bounce.Out)
 
   let tween6 = new TWEEN.Tween(object.position)
-    .to({ x: object.position.x, y: randomNumber6, z: object.position.z }, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.Out)
+    .to({ x: object.position.x, y: randomNumber6, z: object.position.z }, 1000)
+    .easing(TWEEN.Easing.Quadratic.Out)
 
   let returnTween6 = new TWEEN.Tween(object.position)
     .to({ y: originalPosition}, 2500)
-    .easing(TWEEN.Easing.Sinusoidal.In)
+    .easing(TWEEN.Easing.Bounce.Out)
 
   tween.chain(returnTween)
   returnTween.chain(tween2)
@@ -78,9 +78,9 @@ export function initTranslateTween(object){
 
 }
 
-function generateRandomNumber(previousNumber){
-  let x
-  previousNumber > 0 ? x = -1 : x = 1
-  let randomNumber = Math.abs((Math.random() * (2 - (-2)) + (-2))) * x
+function generateRandomNumber(){
+  // let x
+  // previousNumber > 0 ? x = -1 : x = 1
+  let randomNumber = Math.abs((Math.random() * (4 - (1.5)) + (1.5)))
   return randomNumber
 }

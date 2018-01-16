@@ -5,9 +5,7 @@ import * as OBJLoader from 'three-obj-loader';
 OBJLoader.default(THREE)
 
 export function initTitle(threeLoader, objFile, titleColor, titleGroup, idx){
-  console.log("in initTitle", objFile, titleColor)
-
-  let titleMaterial = new THREE.MeshLambertMaterial({color: `${titleColor}`})
+  let titleMaterial = new THREE.MeshPhongMaterial({color: `${titleColor}`})
 
   let titleLoader = new threeLoader.OBJLoader()
   titleLoader.load(`${objFile}`, function(object){
@@ -21,24 +19,23 @@ export function initTitle(threeLoader, objFile, titleColor, titleGroup, idx){
 
     object.traverse(function(child){
       if(child instanceof THREE.Mesh){
-        console.log("in instance", child.geometry)
-        // var bsphereCenter = child.boundingSphere.center
         child.geometry.translate(bboxCenter.x, bboxCenter.y, bboxCenter.z);
         child.material = titleMaterial
+        child.castShadow = true
       }
     })
-    object.scale.set(2, 2, 2)
+    object.scale.set(3, 3, 3)
     var letterPosition = 0
 
     switch(idx) {
     case 0:
-        letterPosition = -7.5
+        letterPosition = -8.5
         break;
     case 1:
-        letterPosition = -5.75
+        letterPosition = -6.25
         break;
     case 2:
-        letterPosition = -4.25
+        letterPosition = -4.4
         break;
     case 3:
         letterPosition = -3
@@ -47,31 +44,28 @@ export function initTitle(threeLoader, objFile, titleColor, titleGroup, idx){
         letterPosition = -1
         break;
     case 5:
-        letterPosition = 0.4
+        letterPosition = 0.5
         break;
     case 6:
-        letterPosition = 2.1
+        letterPosition = 2.5
         break;
     case 7:
-        letterPosition = 3.5
+        letterPosition = 4.25
         break;
     case 8:
-        letterPosition = 4.4
+        letterPosition = 5.35
         break;
     case 9:
-        letterPosition = 5.6
+        letterPosition = 6.75
         break;
     case 10:
-        letterPosition = 7
+        letterPosition = 8.5
         break;
     default:
-        console.log("not yet")
+        letterPosition = 0
         break;
     }
-
     object.position.x = (letterPosition)
-
-    console.log("add pivot point?", object.children[0].geometry)
     titleGroup.add(object)
     initTranslateTween(object)
     initRotateTween(object)

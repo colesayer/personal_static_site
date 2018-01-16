@@ -1,16 +1,15 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import AboutContainer from '../components/about/aboutContainer.js'
-import ProjectsContainer from '../components/projects/projectsContainer.js'
-import BlogContainer from '../components/blog/blogContainer.js'
+import styled from "styled-components";
 
 const IndexPage = ({data}) => {
   console.log("in index", data)
   return(
-    <div>
-      <AboutContainer />
-      <ProjectsContainer />
-      <BlogContainer data={data}/>
+    <div style={{ margin: `0 auto`, textAlign: `center`}}>
+    <Link to="/about" style={{ padding: `5%`}}>About</Link>
+    <Link to="/blog" style={{ padding: `5%`}}>Blog</Link>
+    <Link to="/projects" style={{ padding: `5%`}}>Projects</Link>
+
     </div>
   )
 
@@ -35,3 +34,7 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+// <AboutContainer />
+// <ProjectsContainer />
+// <BlogContainer data={data}/>

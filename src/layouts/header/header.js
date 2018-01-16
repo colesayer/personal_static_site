@@ -15,7 +15,6 @@ class Header extends Component{
    this.animate = this.animate.bind(this)
    this.THREE = THREE
    this.addTitle = this.addTitle.bind(this)
-  //  this.rotateLetters = this.rotateLetters.bind(this)
  }
 
   componentDidMount(){
@@ -25,25 +24,53 @@ class Header extends Component{
     //SCENE
     this.scene = new THREE.Scene()
 
+
     //RENDERER
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     this.renderer.setClearColor(0x000000, 0)
     this.renderer.setSize(width, height)
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
     this.mount.appendChild(this.renderer.domElement)
 
     //CAMERA
     this.camera = new THREE.PerspectiveCamera(
-      25,
+      75,
       width / height,
       0.1,
       1000
     )
-    console.log("set camera", this.mount.clientWidth)
+
+    //CONTROLS
+    this.controls = new OrbitControls(this.camera, this.mount)
+    this.controls.enableZoom = true;
+    this.controls.enablePan = false;
+    this.controls.maxPolarAngle = Math.PI/2
+    this.controls.maxDistance = 50
+    console.log(this.controls)
+
     if(this.mount.clientWidth < 500){
-      this.camera.position.z = 22
+      this.camera.position.z = 20
+      this.camera.position.x = 8
+      this.camera.position.y = 5
+      this.camera.lookAt(-.6, -1, 0)
+      this.controls.target.set(-.6, -1, 0)
+
+      this.scene.fog = new THREE.Fog(0xffffff, 30, 50);
     } else {
-      this.camera.position.z = 15
+      this.camera.position.z = 7
+      this.camera.position.x = 2
+      this.camera.position.y = .5
+      this.scene.fog = new THREE.Fog(0xffffff, 5, 15);
+      this.camera.lookAt(0.5, -1, 0)
+      this.controls.target.set(0.5, -1, 0)
     }
+
+    this.controls.update()
+
+
+
 
 
     //KEYLIGHT
@@ -53,12 +80,15 @@ class Header extends Component{
     //POINTLIGHT
     this.pointLight = new THREE.PointLight( 0xffffff, 1 )
     this.pointLight.position.set( -3, 7, 5 )
+    this.pointLight.castShadow = true
     this.scene.add(this.pointLight)
 
-    //CONTROLS
-    this.controls = new OrbitControls(this.camera, this.mount)
-    this.controls.enableZoom = false;
-    this.controls.enablePan = false;
+    this.pointLight.shadow.mapSize.width = 512;  // default
+    this.pointLight.shadow.mapSize.height = 512; // default
+    this.pointLight.shadow.camera.near = 0.5;       // default
+    this.pointLight.shadow.camera.far = 500      // default
+
+
 
 
     //ADD TITLE
@@ -68,9 +98,19 @@ class Header extends Component{
 
     this.addTitle()
 
-
-
+    this.titleGroup.position.set(-2, -1, 0)
     this.scene.add(this.titleGroup)
+
+    //ADD FLOOR
+    this.floorGeometry = new THREE.PlaneBufferGeometry(100, 100, 32, 32)
+    this.floorMaterial = new THREE.MeshStandardMaterial({color: 'blue'})
+    this.floor = new THREE.Mesh(this.floorGeometry, this.floorMaterial)
+    this.floor.rotation.x = - Math.PI / 2
+    this.floor.position.y = -2.05
+    this.floor.receiveShadow = true
+    this.scene.add(this.floor)
+
+
     setTimeout(() => { console.log(this.titleGroup) }, 3000)
     this.start()
   }
@@ -92,9 +132,6 @@ class Header extends Component{
   }
 
   animate() {
-    // this.titleGroup.rotation.x += 0.01
-    // this.titleGroup.rotation.y += 0.01
-
     this.renderScene()
     TWEEN.update()
     this.frameId = window.requestAnimationFrame(this.animate)
@@ -113,18 +150,11 @@ class Header extends Component{
     }
   }
 
-  // rotateLetters(){
-  //   this.titleGroup.children.forEach(function(child){
-  //     child.rotateY(.02)
-  //   })
-  // }
-
-
   render(){
     const color = randomColor({luminosity: 'light'})
     return(
       <div
-       style={{ height: `12rem`, width: `100%`}}
+       style={{ height: `75vh`, width: `100%`}}
        ref={(mount) => { this.mount = mount }}
       />
     )
@@ -132,11 +162,3 @@ class Header extends Component{
 }
 
 export default Header
-
-// <div >
-//   <header className="title" style={{ marginBottom: `1.5rem`}}>
-//     <Link to="/" style={{ textShadow: `none`, backgroundImage: `none`, textDecoration: 'none' }}>
-//       <h1 style={{ textAlign: `center`, color: `${color}`, textShadow: `0px 0px 20px ${color}`, fontSize: '48px', fontFamily: 'Arial, sans-serif' }}>COLE SHAPIRO</h1>
-//     </Link>
-//   </header>
-// </div>
