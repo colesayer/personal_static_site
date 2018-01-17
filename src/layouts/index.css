@@ -41,6 +41,7 @@ body{
 }
 .dropdown {
     position: relative;
+    float: left;
     padding-left: 2%;
     display: inline-block;
 }
@@ -72,6 +73,24 @@ body{
   opacity: 1;
 }
 .dropdown-content a:hover {background-color: #f1f1f1}
+
+.external-links {
+  position: relative;
+  float: right;
+  display: block;
+  padding-right: 2%;
+}
+
+.external-links ul{
+  list-style: none;
+}
+
+.external-links li{
+  position: relative;
+  display: inline-block;
+  float: right;
+  text-align: right;
+}
 /*body {
   margin: 0;
   background-color: #605;

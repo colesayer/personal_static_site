@@ -48,26 +48,6 @@ class ThreeTitle extends Component{
     this.controls.enablePan = false;
     this.controls.maxPolarAngle = Math.PI/2
     this.controls.maxDistance = 50
-    console.log(this.controls)
-
-    //MOBILE
-    if(this.mount.clientWidth < 500){
-      this.camera.position.z = 20
-      this.camera.position.x = 8
-      this.camera.position.y = 5
-      this.camera.lookAt(-.6, -1, 0)
-      this.controls.target.set(-.6, -1, 0)
-      this.scene.fog = new THREE.Fog(0xffffff, 30, 50);
-    } else {
-      //DESKTOP
-      this.camera.position.z = 10
-      this.camera.position.x = 2
-      this.camera.position.y = 2
-      this.scene.fog = new THREE.Fog(0xffffff, 5, 25);
-      this.camera.lookAt(-0.25, -1, 0)
-      this.controls.target.set(-0.25, -1, 0)
-    }
-    this.controls.update()
 
     //KEYLIGHT
     this.keyLight = new THREE.AmbientLight(0xffffff, 0.5)
@@ -79,8 +59,7 @@ class ThreeTitle extends Component{
     this.pointLight.castShadow = true
     this.scene.add(this.pointLight)
 
-    this.pointLight.shadow.mapSize.width = 2048;  
-    this.pointLight.shadow.mapSize.height = 2048;
+
     this.pointLight.shadow.camera.near = 0.5;       // default
     this.pointLight.shadow.camera.far = 500      // default
 
@@ -107,8 +86,29 @@ class ThreeTitle extends Component{
     this.floor.receiveShadow = true
     this.scene.add(this.floor)
 
+    //MOBILE
+    if(this.mount.clientWidth < 500){
+      this.camera.position.z = 20
+      this.camera.position.x = 8
+      this.camera.position.y = 5
+      this.camera.lookAt(-.6, -1, 0)
+      this.controls.target.set(-.6, -1, 0)
+      this.scene.fog = new THREE.Fog(0xffffff, 30, 50);
+      this.pointLight.shadow.mapSize.width = 512;
+      this.pointLight.shadow.mapSize.height = 512;
+    } else {
+      //DESKTOP
+      this.camera.position.z = 10
+      this.camera.position.x = 2
+      this.camera.position.y = 2
+      this.scene.fog = new THREE.Fog(0xffffff, 5, 25);
+      this.camera.lookAt(-0.25, -1, 0)
+      this.controls.target.set(-0.25, -1, 0)
+      this.pointLight.shadow.mapSize.width = 512;
+      this.pointLight.shadow.mapSize.height = 512;
+    }
+    this.controls.update()
 
-    setTimeout(() => { console.log(this.titleGroup) }, 3000)
     this.start()
   }
 
