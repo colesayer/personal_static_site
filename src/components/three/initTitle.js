@@ -66,6 +66,7 @@ export function initTitle(threeLoader, objFile, titleColor, titleGroup, idx){
         break;
     }
     object.position.x = (letterPosition)
+    object.position.y = -2
     titleGroup.add(object)
     initTranslateTween(object)
     initRotateTween(object)

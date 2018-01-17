@@ -79,8 +79,6 @@ export function initTranslateTween(object){
 }
 
 function generateRandomNumber(){
-  // let x
-  // previousNumber > 0 ? x = -1 : x = 1
   let randomNumber = Math.abs((Math.random() * (4 - (1.5)) + (1.5)))
   return randomNumber
 }

@@ -50,28 +50,24 @@ class ThreeTitle extends Component{
     this.controls.maxDistance = 50
     console.log(this.controls)
 
+    //MOBILE
     if(this.mount.clientWidth < 500){
       this.camera.position.z = 20
       this.camera.position.x = 8
       this.camera.position.y = 5
       this.camera.lookAt(-.6, -1, 0)
       this.controls.target.set(-.6, -1, 0)
-
       this.scene.fog = new THREE.Fog(0xffffff, 30, 50);
     } else {
-      this.camera.position.z = 7
+      //DESKTOP
+      this.camera.position.z = 10
       this.camera.position.x = 2
-      this.camera.position.y = .5
-      this.scene.fog = new THREE.Fog(0xffffff, 5, 15);
-      this.camera.lookAt(0.5, -1, 0)
-      this.controls.target.set(0.5, -1, 0)
+      this.camera.position.y = 2
+      this.scene.fog = new THREE.Fog(0xffffff, 5, 25);
+      this.camera.lookAt(-0.25, -1, 0)
+      this.controls.target.set(-0.25, -1, 0)
     }
-
     this.controls.update()
-
-
-
-
 
     //KEYLIGHT
     this.keyLight = new THREE.AmbientLight(0xffffff, 0.5)
@@ -79,12 +75,12 @@ class ThreeTitle extends Component{
 
     //POINTLIGHT
     this.pointLight = new THREE.PointLight( 0xffffff, 1 )
-    this.pointLight.position.set( -3, 7, 5 )
+    this.pointLight.position.set( 0, 20, 20 )
     this.pointLight.castShadow = true
     this.scene.add(this.pointLight)
 
-    this.pointLight.shadow.mapSize.width = 512;  // default
-    this.pointLight.shadow.mapSize.height = 512; // default
+    this.pointLight.shadow.mapSize.width = 2048;  
+    this.pointLight.shadow.mapSize.height = 2048;
     this.pointLight.shadow.camera.near = 0.5;       // default
     this.pointLight.shadow.camera.far = 500      // default
 
@@ -102,11 +98,12 @@ class ThreeTitle extends Component{
     this.scene.add(this.titleGroup)
 
     //ADD FLOOR
+    var floorColor = randomColor({luminosity: 'bright'})
     this.floorGeometry = new THREE.PlaneBufferGeometry(100, 100, 32, 32)
-    this.floorMaterial = new THREE.MeshStandardMaterial({color: 'blue'})
+    this.floorMaterial = new THREE.MeshStandardMaterial({color: `${floorColor}`})
     this.floor = new THREE.Mesh(this.floorGeometry, this.floorMaterial)
     this.floor.rotation.x = - Math.PI / 2
-    this.floor.position.y = -2.05
+    this.floor.position.y = -4.05
     this.floor.receiveShadow = true
     this.scene.add(this.floor)
 
