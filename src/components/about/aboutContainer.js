@@ -10,6 +10,8 @@ flex-flow: row wrap;
 align-items: center;
 justify-content: center;
 textAlign: center;
+background-color: #605;
+padding: 20px;
 h3{
   font-size: 18px;
   font-family: Ariel, sans-serif;

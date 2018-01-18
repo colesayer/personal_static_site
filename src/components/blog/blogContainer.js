@@ -6,9 +6,9 @@ import BlogList from './blogList.js'
 import styled from "styled-components";
 
 const Section = styled.div`
-background-color: rgba(0, 0, 0, 0.1);
+ background-color: #605;;
  padding: 10px;
- margin-top: 5%;
+ margin-top: 10%;
  h3 {
    margin: 0 0 10px;
  }
@@ -33,12 +33,15 @@ class BlogContainer extends Component{
     const { edges: posts } = this.props.data.allMarkdownRemark;
     const color = randomColor({luminosity: 'light'})
     return(
+      <div>
+      <h1 style={{textAlign: 'center', paddingTop: '10%'}}> Cole Shapiro's Blog </h1>
       <Section>
         <BlogWrapper style={{borderColor: `${color}`}}>
-          <h3 style={{color: `${color}`, fontWeight: `lighter`, fontSize: '18px'}}>Words I've Written:</h3>
+          <h3 style={{color: `${color}`, fontWeight: `lighter`, fontSize: '18px'}}>Recent Posts:</h3>
           <BlogList posts={posts}/>
         </BlogWrapper>
       </Section>
+      </div>
     )
   }
 }

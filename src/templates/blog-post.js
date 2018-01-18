@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import Link from 'gatsby-link'
 
 // import '../css/blog-post.css';
 
@@ -15,6 +16,7 @@ export default function Template({
         <h3>{post.frontmatter.date}</h3>
         <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
+      <Link to ="/blog">Back</Link>
     </div>
   );
 }

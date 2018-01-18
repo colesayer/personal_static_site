@@ -5,8 +5,8 @@ import randomColor from 'randomcolor'
 import styled from "styled-components";
 
 const Section = styled.div`
- background-color: rgba(0, 0, 0, 0.1);
- padding: 5px;
+ background-color: #605;
+ padding: 10px;
  margin-top: 5%;
  h3 {
    margin: 0 0 10px;
@@ -80,7 +80,7 @@ class ProjectsContainer extends Component{
     return(
       <Section>
         <ProjectWrapper style={{borderColor: `${color[0]}`}}>
-          <h3 style={{color: `${color[0]}`, fontSize: '18px'}}>Things I've made:</h3>
+          <h3 style={{color: `${color[0]}`, fontSize: '18px'}}>Recent Projects:</h3>
           <StyledList>
             <li>
               <Link to="/projects/my-life-socks" style={{color: `${color[1]}`}}>
