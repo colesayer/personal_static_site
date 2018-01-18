@@ -36,7 +36,7 @@ class ThreeTitle extends Component{
 
     //CAMERA
     this.camera = new THREE.PerspectiveCamera(
-      75,
+      35,
       width / height,
       0.1,
       1000
@@ -47,7 +47,7 @@ class ThreeTitle extends Component{
     this.controls.enableZoom = true;
     this.controls.enablePan = false;
     this.controls.maxPolarAngle = Math.PI/2
-    this.controls.maxDistance = 50
+    this.controls.maxDistance = 80
 
     //KEYLIGHT
     this.keyLight = new THREE.AmbientLight(0xffffff, 0.5)
@@ -55,16 +55,12 @@ class ThreeTitle extends Component{
 
     //POINTLIGHT
     this.pointLight = new THREE.PointLight( 0xffffff, 1 )
-    this.pointLight.position.set( 0, 20, 20 )
+    this.pointLight.position.set( 0, 5, 5 )
     this.pointLight.castShadow = true
     this.scene.add(this.pointLight)
 
-
     this.pointLight.shadow.camera.near = 0.5;       // default
     this.pointLight.shadow.camera.far = 500      // default
-
-
-
 
     //ADD TITLE
     this.titleGroup = new THREE.Group()
@@ -78,8 +74,9 @@ class ThreeTitle extends Component{
 
     //ADD FLOOR
     var floorColor = randomColor({luminosity: 'bright'})
-    this.floorGeometry = new THREE.PlaneBufferGeometry(100, 100, 32, 32)
+    this.floorGeometry = new THREE.PlaneBufferGeometry(200, 200, 32, 32)
     this.floorMaterial = new THREE.MeshStandardMaterial({color: `${floorColor}`})
+    this.floorMaterial.roughness = .7;
     this.floor = new THREE.Mesh(this.floorGeometry, this.floorMaterial)
     this.floor.rotation.x = - Math.PI / 2
     this.floor.position.y = -4.05
@@ -88,22 +85,23 @@ class ThreeTitle extends Component{
 
     //MOBILE
     if(this.mount.clientWidth < 500){
-      this.camera.position.z = 20
-      this.camera.position.x = 8
-      this.camera.position.y = 5
-      this.camera.lookAt(-.6, -1, 0)
-      this.controls.target.set(-.6, -1, 0)
-      this.scene.fog = new THREE.Fog(0xffffff, 30, 50);
+      console.log(this.camera)
+      this.camera.position.z = 40
+      this.camera.position.x = 30
+      this.camera.position.y = 10
+      this.camera.lookAt(-1, -1, 0)
+      this.controls.target.set(-1, -1, 0)
+      this.scene.fog = new THREE.Fog(0xffffff, 55, 100);
       this.pointLight.shadow.mapSize.width = 512;
       this.pointLight.shadow.mapSize.height = 512;
     } else {
       //DESKTOP
-      this.camera.position.z = 10
-      this.camera.position.x = 2
-      this.camera.position.y = 2
-      this.scene.fog = new THREE.Fog(0xffffff, 5, 25);
-      this.camera.lookAt(-0.25, -1, 0)
-      this.controls.target.set(-0.25, -1, 0)
+      this.camera.position.z = 20
+      this.camera.position.x = 1
+      this.camera.position.y = 1.5
+      this.scene.fog = new THREE.Fog(0xffffff, 8, 50);
+      this.camera.lookAt(-1.5, -1, 0)
+      this.controls.target.set(-1.5, -1, 0)
       this.pointLight.shadow.mapSize.width = 512;
       this.pointLight.shadow.mapSize.height = 512;
     }
@@ -151,7 +149,7 @@ class ThreeTitle extends Component{
     const color = randomColor({luminosity: 'light'})
     return(
       <div
-       style={{ height: `75vh`, width: `100%`}}
+       style={{ height: `100vh`, width: `100%`}}
        ref={(mount) => { this.mount = mount }}
       />
     )

@@ -23,7 +23,7 @@ class Header extends Component{
 
   handleMouseLeave = (e) => {
     e.preventDefault()
-    this.setState({clicked: false})
+    this.setState({clicked: false, dropMenuActive: false})
   }
 
   handleDropMenuActive = (e) => {
@@ -94,22 +94,3 @@ class Header extends Component{
 }
 
 export default Header
-
-// const Header = () => (
-//   <div>
-//     <div className="dropdown">
-//       <button className="dropbtn" style={{backgroundColor: `${linkColor}`}}><span>CS</span></button>
-//         <div className="dropdown-content">
-//           <Link to="/" style={{ padding: `5%`}}><span onClick={void(0)}>Home</span></Link>
-//           <Link to="/about" style={{ padding: `5%`}}><span onClick={void(0)}>About</span></Link>
-//           <Link to="/blog" style={{ padding: `5%`}}><span onClick={void(0)}>Blog</span></Link>
-//           <Link to="/projects" style={{ padding: `5%`}}><span onClick={void(0)}>Projects</span></Link>
-//         </div>
-//     </div>
-//
-//
-//   </div>
-// )
-
-// <Link to="/blog" style={{ padding: `5%`}}>Blog</Link>
-// <Link to="/projects" style={{ padding: `5%`}}>Projects</Link>

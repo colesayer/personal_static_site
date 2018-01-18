@@ -6,7 +6,8 @@ import BlogList from './blogList.js'
 import styled from "styled-components";
 
 const Section = styled.div`
- background-color: #605;;
+ background-color: #605;
+ height: 100%;
  padding: 10px;
  margin-top: 10%;
  h3 {
@@ -33,7 +34,7 @@ class BlogContainer extends Component{
     const { edges: posts } = this.props.data.allMarkdownRemark;
     const color = randomColor({luminosity: 'light'})
     return(
-      <div>
+      <div className="blog-container">
       <h1 style={{textAlign: 'center', paddingTop: '10%'}}> Cole Shapiro's Blog </h1>
       <Section>
         <BlogWrapper style={{borderColor: `${color}`}}>
