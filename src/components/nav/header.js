@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { navigateTo } from 'gatsby-link';
-import './index.css';
+import '../../layouts/index.css';
 
 class Header extends Component{
 
@@ -74,10 +74,10 @@ class Header extends Component{
     } else if (this.state.clicked === true || this.state.dropMenuActive === true) {
       dropButton = <button className="dropbtnActive" style={{backgroundColor: `${this.props.linkColor}`}} onClick={this.handleClick}  onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
       dropMenu = <div className="dropdown-content" onMouseEnter={this.handleDropMenuActive} onMouseLeave={this.handleDropMenuInactive}>
-                    <span style={{ padding: `5%`}} onClick={this.handleHome}>Home</span>
-                    <span style={{ padding: `5%`}} onClick={this.handleAbout}>About</span>
-                    <span style={{ padding: `5%`}} onClick={this.handleProjects}>Projects</span>
-                    <span style={{ padding: `5%`}} onClick={this.handleBlog}>Blog</span>
+                    <span style={{ padding: `5%`}} onClick={this.props.closeModal}>Home</span>
+                    <span style={{ padding: `5%`}} onClick={this.props.openModal}>About</span>
+                    <span style={{ padding: `5%`}} onClick={this.props.openModal}>Projects</span>
+                    <span style={{ padding: `5%`}} onClick={this.props.openModal}>Blog</span>
                 </div>
     }
 

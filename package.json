@@ -14,6 +14,7 @@
     "randomcolor": "^0.5.3",
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.7",
+    "react-modal": "^3.1.11",
     "styled-components": "^2.4.0",
     "three": "^0.89.0",
     "three-obj-loader": "^1.1.3",
