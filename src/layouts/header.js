@@ -68,11 +68,11 @@ class Header extends Component{
     var dropButton = ""
     var dropMenu = ""
 
-    if(this.state.clicked === false){
+    if(this.state.clicked === false && this.state.dropMenuActive === false){
       dropButton = <button className="dropbtn" style={{backgroundColor: `${this.props.linkColor}`}}  onClick={this.handleClick} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
       dropMenu = ""
     } else if (this.state.clicked === true || this.state.dropMenuActive === true) {
-      dropButton = <button className="dropbtnActive" style={{backgroundColor: `${this.props.linkColor}`}} onClick={this.handleClick}><span>CS</span></button>
+      dropButton = <button className="dropbtnActive" style={{backgroundColor: `${this.props.linkColor}`}} onClick={this.handleClick}  onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
       dropMenu = <div className="dropdown-content" onMouseEnter={this.handleDropMenuActive} onMouseLeave={this.handleDropMenuInactive}>
                     <span style={{ padding: `5%`}} onClick={this.handleHome}>Home</span>
                     <span style={{ padding: `5%`}} onClick={this.handleAbout}>About</span>

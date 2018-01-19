@@ -9,12 +9,12 @@ export default function Template({
 }) {
   const { markdownRemark: post } = data;
   return (
-    <div className="blog-post-container">
+    <div>
       <Helmet title={`Cole Shapiro - ${post.frontmatter.title}`} />
-      <div className="blog-post">
-        <h1>{post.frontmatter.title}</h1>
-        <h3>{post.frontmatter.date}</h3>
-        <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div className="blog-post-container">
+          <h1>{post.frontmatter.title}</h1>
+          <h3>{post.frontmatter.date}</h3>
+          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </div>
   );

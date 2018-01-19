@@ -13,12 +13,10 @@ const StyledList = styled.ul`
   align-items: center;
   justify-content: center;
   a {
-    color: white;
     display: flex;
     flex-direction: column;
     transition: all 0.3s;
-    padding: 10px;
-    margin: 0 -10px;
+    margin: 0 -20px;
     flex: 1;
     padding: 5px;
     border-radius: 4px;
@@ -32,13 +30,6 @@ const StyledList = styled.ul`
       padding: 15px 10px;
       text-decoration: none;
       transition: all 0.3s;
-    }
-    span:first-child {
-      font-size: 14px;
-      padding-bottom: 5px;
-    }
-    span:last-child {
-      font-size: 10px;
     }
   }
 `;

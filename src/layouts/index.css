@@ -1,5 +1,5 @@
 html {
-  font-family: Georgia, serif;
+  font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0 auto;
@@ -90,23 +90,43 @@ body{
 }
 
 .blog-container{
+  position: relative;
+  float: left;
   max-width: 960;
-  max-height: 75vh;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  max-height: 100%;
+  margin: 100px;
   display: block;
-  margin: 0 auto;
   z-index: 0;
+  overflow: hidden;
+}
+
+.blog-container h1{
+  margin: 0 auto;
+  padding: 10px;
+  text-align: left;
+  font-weight: lighter;
+}
+
+.blog-list {
+  background-color: purple;
+}
+.blog-post-preview span h3{
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
+}
+
+.blog-post-preview span h4{
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
 }
 
 .blog-post-container{
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-
-.blog-post{
+  background-color: blue;
   max-width: 960px;
-  height: 75vh;
   margin: 0 auto;
-  overflow-y: scroll;
+  padding: 5%;
+  height: 100vh;
+  overflow: scroll;
 }

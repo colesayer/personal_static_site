@@ -15,7 +15,7 @@ class BlogCard extends Component{
           <h3>{post.frontmatter.title}</h3>
           </span>
           <span>
-          <h4 style={{fontSize: '18px', fontWeight: 'lighter'}}>{post.frontmatter.date}</h4>
+          <h4>{post.frontmatter.date}</h4>
           </span>
 
         </Link>
