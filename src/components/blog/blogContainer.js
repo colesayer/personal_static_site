@@ -3,7 +3,6 @@ import Link from "gatsby-link";
 import Helmet from "react-helmet";
 import randomColor from 'randomcolor'
 import BlogList from './blogList.js'
-import styled from "styled-components";
 
 import '../../layouts/index.css'
 
@@ -17,7 +16,7 @@ class BlogContainer extends Component{
       <div className="blog-container">
       <h1 style={{color: `${color}`}}> Some things I've written: </h1>
         <div className="blog-list" style={{borderColor: `${color}`}}>
-          <BlogList posts={posts} bgColor={bgColor}/>
+          <BlogList posts={posts} bgColor={"bgColor"}/>
         </div>
       </div>
     )

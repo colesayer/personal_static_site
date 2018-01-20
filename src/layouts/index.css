@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -18,6 +22,7 @@ body{
 }
 .dropbtn {
     color: white;
+    background-color: blue;
     font-size: .75rem;
     width: 1.5rem;
     height: 1.5rem;
@@ -37,6 +42,7 @@ body{
 }
 .dropbtnActive {
   color: white;
+  background-color: blue;
   font-size: .75rem;
   width: 1.5rem;
   height: 1.5rem;
@@ -54,6 +60,8 @@ body{
 .dropdown-content {
     display: block;
     position: absolute;
+    left: 1.5rem;
+    top: calc(-1.5rem + 22px);
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -67,6 +75,7 @@ body{
     display: block;
     cursor: pointer;
 }
+
 .dropdown-content span:hover {background-color: #f1f1f1}
 
 .footer{
@@ -79,6 +88,104 @@ body{
   transform: translateX(-50%);
   z-index: 9;
   text-align: center;
+}
+
+.footer a{
+  text-shadow: none;
+  background-image: none;
+  color: blue;
+  padding: .5rem;
+  font-size: 2rem;
+  margin: 2%;
+}
+
+.blog-footer{
+  position: absolute;
+  display: block;
+  width: 100%;
+  top: 50px;
+  left: 14px;
+  z-index: 9;
+  text-align: left;
+}
+
+.blog-footer ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-footer li{
+  margin-bottom: 15px;
+}
+
+.blog-footer a{
+  text-shadow: none;
+  background-image: none;
+  color: blue;
+  padding: 0;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.side-links{
+  position: absolute;
+  display: block;
+  width: auto;
+  top: 50px;
+  left: 14px;
+  z-index: 9;
+  text-align: left;
+}
+
+.side-links ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.side-links li{
+  margin-bottom: 15px;
+}
+
+.side-links a{
+  text-shadow: none;
+  background-image: none;
+  color: blue;
+  padding: 0;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.side-links-open{
+  position: absolute;
+  display: block;
+  width: auto;
+  /*transition: 0.5s;
+  top: 180px;*/
+  top: 50px;
+  left: 14px;
+  z-index: 9;
+  text-align: left;
+}
+
+.side-links-open ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.side-links-open li{
+  margin-bottom: 15px;
+}
+
+.side-links-open a{
+  text-shadow: none;
+  background-image: none;
+  color: blue;
+  padding: 0;
+  font-size: 1.8rem;
+  margin: 0;
 }
 
 .about-container{
@@ -107,8 +214,37 @@ body{
   font-weight: lighter;
 }
 
-.blog-list {
+.blog-list ul{
   background-color: purple;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-list ul a{
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+  margin: 0 -20px;
+  flex: 1;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  margin: 10px;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+}
+
+.blog-list ul a:hover{
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.25);
+  padding: 15px 10px;
+  text-decoration: none;
+  transition: all 0.3s;
 }
 .blog-post-preview span h3{
   margin: 0;
@@ -124,9 +260,91 @@ body{
 
 .blog-post-container{
   background-color: blue;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 5%;
+  max-width: 50vw;
   height: 100vh;
-  overflow: scroll;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.blog-post{
+  background-color: yellow;
+  padding: 10%;
+  width: 80%;
+  white-space: normal;
+}
+
+.blog-post-content code{
+  background-color: #eff0f1;
+}
+
+.blog-post-content pre code{
+  overflow: auto;
+  padding-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: inline-block;
+  width: 100%;
+}
+
+.projects-container{
+  position: relative;
+  float: left;
+  max-width: 960;
+  max-height: 100%;
+  margin: 100px;
+  display: block;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.projects-container h1{
+  margin: 0 auto;
+  padding: 10px;
+  text-align: left;
+  font-weight: lighter;
+}
+
+.projects-list ul{
+  background-color: purple;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects-list ul a{
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+  margin: 0 -20px;
+  flex: 1;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  margin: 10px;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+}
+
+.projects-list ul a:hover{
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.25);
+  padding: 15px 10px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.projects-list ul li a span h3{
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
+}
+
+.projects-list ul li a span h4{
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
 }

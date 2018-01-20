@@ -9,8 +9,8 @@ I wanted to check out the `<canvas>` element in JS and see how it might be utili
 **Data Structure for React**
 </br>
 </br>
-<a href="http://res.cloudinary.com/dwnehv6tb/image/upload/v1515225386/1_pc2m1i.png">
-<img src="http://res.cloudinary.com/dwnehv6tb/image/upload/v1515225386/1_pc2m1i.png"
+<a href="http://res.cloudinary.com/dwnehv6tb/image/upload/v1515225386/1_pc2m1i.jpg">
+<img src="http://res.cloudinary.com/dwnehv6tb/image/upload/v1515225386/1_pc2m1i.jpg"
      alt="blender exec"
      style="width: 100%" />
 </a>
@@ -24,7 +24,7 @@ We pass a property called lines to drawing, lines will be a list of points on an
 
 First we build our Canvas component with a div drawArea that has two event listeners:
 
-```js
+```
 import React, { Component } from 'react';
 class Canvas extends Component{
   state = {
@@ -46,7 +46,7 @@ export default React
 ```
 The handleMouseDown method listens for the “main” mouse button. It sets the isDrawing state to true and pushes the coordinates of the mouse event to the array of lines.
 
-```js
+```
 handleMouseDown = (event) => {
     if (event.button !== 0) return
 const point = this.relativeCoordinatesForEvent(event);
@@ -61,7 +61,7 @@ this.setState(prevState => {
 
 Since those coordinates start on the top/left of the browser and not our DrawArea, we will subtract the `top` and `left` position of the event relative to it’s coordinates on the page. The `getBoundingClientRect()` function returns the size of the drawing area and its position relative to the viewport.
 
-```js
+```
 relativeCoordinatesForEvent(event) {
   const boundingRect = this.refs.drawArea.getBoundingClientRect();
 
@@ -74,7 +74,7 @@ relativeCoordinatesForEvent(event) {
 
 Our `handleMouseMove` method pushes the new point to the `lines` state in reference to its previous state. `updateIn()` is a function built into Immutable that returns a copy of the previous state and updates the copy with the specified value.
 
-```js
+```
 handleMouseMove = (event) => {
     if (!this.state.isDrawing) {
       return;
@@ -88,7 +88,7 @@ handleMouseMove = (event) => {
 
 At this point we have the canvas set up, we just need to add the ability to make and display a drawing.
 
-```js
+```
 const Drawing = (props) => {
     return(
       <svg className="drawing">
@@ -102,7 +102,7 @@ const Drawing = (props) => {
 
 The `<svg>` element is an XML-based vector image format. It has its own viewport and coordinate system. An example `<svg>` might look like:
 
-```js
+```
 <svg>
   <path stroke="black" d="M 0 0 L 200 100" />
 </svg>
@@ -112,7 +112,7 @@ which renders a black line from coordinates 0, 0 to 200, 100.
 
 In the next functional component, we feed the Immutable list state from our Canvas, through Drawing, and down to its child the DrawingLine component. It interpolates the lines prop into paths.
 
-```js
+```
 const DrawingLine = (props) => {
   const pathData = "M " + props.line
     .map(p => {

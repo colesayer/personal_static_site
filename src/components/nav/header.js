@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { navigateTo } from 'gatsby-link';
+import FaGithub from 'react-icons/lib/fa/github'
+import FaLinkedin from 'react-icons/lib/fa/linkedin'
+import MdColorLens from 'react-icons/lib/md/color-lens'
 import '../../layouts/index.css';
 
 class Header extends Component{
@@ -40,45 +43,33 @@ class Header extends Component{
     e.preventDefault()
     navigateTo('/')
     this.setState({clicked: false, dropMenuActive: false})
+    this.props.closeModal(e)
   }
 
-  handleAbout = (e) => {
+  handleMenuClick = (e) => {
     e.preventDefault()
-    navigateTo('/about')
     this.setState({clicked: false, dropMenuActive: false})
+    this.props.openModal(e)
   }
-
-  handleProjects = (e) => {
-    e.preventDefault()
-    navigateTo('/projects')
-    this.setState({clicked: false, dropMenuActive: false})
-  }
-
-  handleBlog = (e) => {
-    e.preventDefault()
-    navigateTo('/blog')
-    this.setState({clicked: false, dropMenuActive: false})
-  }
-
-
 
   render(){
-    console.log("HEADER", this.state)
-
     var dropButton = ""
     var dropMenu = ""
+    var sideLinksClass = ""
 
     if(this.state.clicked === false && this.state.dropMenuActive === false){
-      dropButton = <button className="dropbtn" style={{backgroundColor: `${this.props.linkColor}`}}  onClick={this.handleClick} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
+      dropButton = <button className="dropbtn" onClick={this.handleClick} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
       dropMenu = ""
+      sideLinksClass = "side-links"
     } else if (this.state.clicked === true || this.state.dropMenuActive === true) {
-      dropButton = <button className="dropbtnActive" style={{backgroundColor: `${this.props.linkColor}`}} onClick={this.handleClick}  onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
+      dropButton = <button className="dropbtnActive" onClick={this.handleClick}  onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
       dropMenu = <div className="dropdown-content" onMouseEnter={this.handleDropMenuActive} onMouseLeave={this.handleDropMenuInactive}>
-                    <span style={{ padding: `5%`}} onClick={this.props.closeModal}>Home</span>
-                    <span style={{ padding: `5%`}} onClick={this.props.openModal}>About</span>
-                    <span style={{ padding: `5%`}} onClick={this.props.openModal}>Projects</span>
-                    <span style={{ padding: `5%`}} onClick={this.props.openModal}>Blog</span>
+                    <span style={{ padding: `5%`}} onClick={this.handleHome}>Home</span>
+                    <span style={{ padding: `5%`}} onClick={this.handleMenuClick}>About</span>
+                    <span style={{ padding: `5%`}} onClick={this.handleMenuClick}>Projects</span>
+                    <span style={{ padding: `5%`}} onClick={this.handleMenuClick}>Blog</span>
                 </div>
+      sideLinksClass = "side-links-open"
     }
 
 
@@ -87,6 +78,13 @@ class Header extends Component{
         <div className="dropdown">
           {dropButton }
           {dropMenu}
+        </div>
+        <div className={sideLinksClass}>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/cole-shapiro-54646b9/" ><FaLinkedin /></a></li>
+            <li><a href="https://github.com/colesayer" target="_blank" ><FaGithub /></a></li>
+            <li><a href="http://www.jttnyc.com/6953,6954,6964" target="_blank"><MdColorLens /></a></li>
+          </ul>
         </div>
       </div>
     )

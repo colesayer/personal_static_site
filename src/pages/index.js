@@ -16,7 +16,9 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    backgroundColor       : 'yellow',
+    overflow              : 'auto',
   }
 };
 
@@ -62,12 +64,11 @@ class IndexPage extends Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <button onClick={this.closeModal}>close</button>
+          <button onClick={this.closeModal} style={{zIndex: '10'}}>close</button>
           {componentForModal}
         </Modal>
 
         <ThreeTitle />
-        <Footer />
       </div>
     )
   }

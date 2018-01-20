@@ -5,7 +5,6 @@ import randomColor from 'randomcolor'
 
 class BlogCard extends Component{
   render(){
-    console.log("blogCard", this.props.post)
     const post = this.props.post
     const color = randomColor({luminosity: 'light'})
     return(
