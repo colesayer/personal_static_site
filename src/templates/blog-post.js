@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link'
-import BlogHeader from '../components/nav/blogHeader.js'
-import BlogFooter from '../components/nav/blogFooter.js'
 
 import '../layouts/index.css';
 
@@ -14,8 +12,6 @@ export default class Template extends Component{
     return (
       <div>
         <Helmet title={`Cole Shapiro - ${post.frontmatter.title}`} />
-        <BlogHeader />
-        <BlogFooter />
         <div className="blog-post-container">
           <div className="blog-post">
             <h1>{post.frontmatter.title}</h1>

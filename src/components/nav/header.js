@@ -39,17 +39,34 @@ class Header extends Component{
     if(this.state.dropMenuActive === true)this.setState({dropMenuActive: false, clicked: false})
   }
 
-  handleHome = (e) => {
-    e.preventDefault()
-    navigateTo('/')
-    this.setState({clicked: false, dropMenuActive: false})
-    this.props.closeModal(e)
-  }
-
   handleMenuClick = (e) => {
     e.preventDefault()
     this.setState({clicked: false, dropMenuActive: false})
     this.props.openModal(e)
+  }
+
+  handleHomeClick = (e) => {
+    e.preventDefault()
+    navigateTo('/')
+    this.setState({clicked: false, dropMenuActive: false})
+  }
+
+  handleAboutClick = (e) => {
+    e.preventDefault()
+    navigateTo('/about')
+    this.setState({clicked: false, dropMenuActive: false})
+  }
+
+  handleProjectsClick = (e) => {
+    e.preventDefault()
+    navigateTo('/projects')
+    this.setState({clicked: false, dropMenuActive: false})
+  }
+
+  handleBlogClick = (e) => {
+    e.preventDefault()
+    this.setState({clicked: false, dropMenuActive: false})
+    navigateTo("/blog")
   }
 
   render(){
@@ -64,10 +81,10 @@ class Header extends Component{
     } else if (this.state.clicked === true || this.state.dropMenuActive === true) {
       dropButton = <button className="dropbtnActive" onClick={this.handleClick}  onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
       dropMenu = <div className="dropdown-content" onMouseEnter={this.handleDropMenuActive} onMouseLeave={this.handleDropMenuInactive}>
-                    <span style={{ padding: `5%`}} onClick={this.handleHome}>Home</span>
-                    <span style={{ padding: `5%`}} onClick={this.handleMenuClick}>About</span>
-                    <span style={{ padding: `5%`}} onClick={this.handleMenuClick}>Projects</span>
-                    <span style={{ padding: `5%`}} onClick={this.handleMenuClick}>Blog</span>
+                    <span style={{ padding: `5%`}} onClick={this.handleHomeClick}>Home</span>
+                    <span style={{ padding: `5%`}} onClick={this.handleAboutClick}>About</span>
+                    <span style={{ padding: `5%`}} onClick={this.handleProjectsClick}>Projects</span>
+                    <span style={{ padding: `5%`}} onClick={this.handleBlogClick}>Blog</span>
                 </div>
       sideLinksClass = "side-links-open"
     }

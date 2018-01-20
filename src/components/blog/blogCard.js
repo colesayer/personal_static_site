@@ -5,18 +5,19 @@ import randomColor from 'randomcolor'
 
 class BlogCard extends Component{
   render(){
+
     const post = this.props.post
-    const color = randomColor({luminosity: 'light'})
+    console.log("BLOG CARD", post)
+    const color = randomColor({luminosity: 'dark'})
     return(
       <li className="blog-post-preview">
         <Link to={post.frontmatter.path} style={{color: `${color}`, borderColor: `${color}`}}>
-          <span>
-          <h3>{post.frontmatter.title}</h3>
-          </span>
-          <span>
-          <h4>{post.frontmatter.date}</h4>
-          </span>
-
+          <div className="blog-post-preview-text">
+            <h3>{post.frontmatter.title}</h3>
+            <h4>{post.frontmatter.date}</h4>
+            <p>{post.excerpt}</p>
+          </div>
+          <img src={post.frontmatter.img}/>
         </Link>
       </li>
     )

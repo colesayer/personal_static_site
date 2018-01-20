@@ -2,6 +2,7 @@
 path: "/ruby-rand"
 date: "2017-09-05"
 title: "Ruby Rand(y)"
+img: "http://res.cloudinary.com/dwnehv6tb/image/upload/v1516487617/chaos_kxnkjl.jpg"
 ---
 
 It’s likely if you’ve started coding that you’ve come across the need to randomly generate a number. With Ruby’s Random Class you can do just that:

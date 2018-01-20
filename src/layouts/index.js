@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import Header from '../components/nav/header.js'
 
 
 import './index.css'
@@ -16,6 +17,7 @@ const TemplateWrapper = ({children}) => (
             { name: 'keywords', content: 'sample, something' },
           ]}
         />
+        <Header />
 
         <div
           style={{
@@ -28,6 +30,7 @@ const TemplateWrapper = ({children}) => (
             flexWrap: 'wrap',
             justifyContent: 'center',
             alignItems: 'center',
+            overflow: 'scroll',
           }}
         >
           {children()}
