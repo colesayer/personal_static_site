@@ -2,71 +2,6 @@ import React, { Component } from 'react';
 import Link from 'gatsby-link'
 import Helmet from "react-helmet";
 import randomColor from 'randomcolor'
-import styled from "styled-components";
-
-const Section = styled.div`
- background-color: #605;
- padding: 10px;
- margin-top: 5%;
- h3 {
-   margin: 0 0 10px;
-   font-weight: lighter;
- }
-`;
-
-const ProjectWrapper = styled.div`
-display: flex;
-flex-flow: row wrap;
-align-items: center;
-justify-content: center;
-p {
-   width: 100%;
-   text-align: center;
-   margin: 20px 0 0;
-   font-weight: bold;
-   font-size: 24px;
- }
-`;
-
-const StyledList = styled.ul`
-  list-style: none;
-  padding: 5px;
-  margin: 0;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  a {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s;
-    margin: 0 -10px;
-    flex: 1;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    margin: 10px;
-    align-items: center;
-    text-decoration: none;
-    text-align: center;
-    &:hover {
-      box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.25);
-      padding: 15px 10px;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    span:first-child {
-      font-size: 18px;
-      font-weight: bold;
-      padding-bottom: 5px;
-    }
-    span:last-child {
-      font-size: 14px;
-    }
-  }
-`;
 
 
 class ProjectsContainer extends Component{
@@ -76,38 +11,43 @@ class ProjectsContainer extends Component{
 
 
   render(){
-    const color = randomColor({luminosity: 'light', count: 5})
+    const color = randomColor({luminosity: 'dark', count: 5})
     return(
       <div className="projects-container">
-          <h1 style={{color: `${color[0]}`}}>Some things I've made:</h1>
+          <h1>Some things I've made:</h1>
           <div className="projects-list">
             <ul>
-              <li>
-                <Link to="/projects/my-life-socks" style={{color: `${color[1]}`}}>
-                  <span>
+              <li className="project-preview">
+                <Link to="/projects/my-life-socks" style={{color: `${color[1]}`, borderColor: `${color[1]}`}}>
+                  <div className="project-preview-text">
                     <h3>My Life Socks</h3>
-                  </span>
-                </Link>
+                    <h4>A fully customizable virtual product display.</h4>
+                  </div>
+                  <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/v1516506826/socks_q2wrxu.jpg"/>
+              </Link>
               </li>
-              <li>
-                <Link to="/projects/gallerina" style={{color: `${color[2]}`}}>
-                  <span>
+              <li className="project-preview">
+                <Link to="/projects/gallerina" style={{color: `${color[2]}`, borderColor: `${color[2]}`}}>
+                  <div className="project-preview-text">
                     <h3>Gallerina</h3>
-                  </span>
+                    <h4>A lightning fast exhibition design tool for gallerists, curators, and artists.</h4>
+                  </div>
                 </Link>
               </li>
-              <li>
-                <Link to="/projects/hey-mr-postman" style={{color: `${color[3]}`}}>
-                  <span>
+              <li className="project-preview">
+                <Link to="/projects/hey-mr-postman" style={{color: `${color[3]}`, borderColor: `${color[3]}`}}>
+                  <div className="project-preview-text">
                     <h3>Hey Mr. Postman</h3>
-                  </span>
+                    <h4>An exciting new way to read and write emails utilizing the power of WebGL.</h4>
+                  </div>
                 </Link>
               </li>
-              <li>
-                <Link to="/projects/dnd-campaign-manager" style={{color: `${color[4]}`}}>
-                  <span>
+              <li className="project-preview">
+                <Link to="/projects/dnd-campaign-manager" style={{color: `${color[4]}`, borderColor: `${color[4]}`}}>
+                  <div className="project-preview-text">
                     <h3>D&D Campaign Manager</h3>
-                  </span>
+                    <h4>The daunting task of creating a character for Dungeons and Dragons and organizing a campaign made easy.</h4>
+                  </div>
                 </Link>
               </li>
             </ul>

@@ -14,7 +14,7 @@ class BlogContainer extends Component{
     const bgColor = randomColor({luminosity: 'dark'})
     return(
       <div className="blog-container">
-      <h1> Some things I've written: </h1>
+        <h1> Some things I've written: </h1>
         <div className="blog-list" style={{borderColor: `${color}`}}>
           <BlogList posts={posts} bgColor={"bgColor"}/>
         </div>

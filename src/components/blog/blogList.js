@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import BlogCard from './blogCard.js'
-import styled from "styled-components";
 
 class BlogList extends Component{
   render(){

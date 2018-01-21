@@ -2,6 +2,8 @@
   display: none;
 }
 
+
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -49,8 +51,6 @@ body{
   padding: 0px;
   font-family: sans-serif;
   border: none;
-  transition: 0.70s;
-  transform: rotate(-45deg);
   text-align: center;
   line-height: 100%;
   transition: 0.70s;
@@ -146,16 +146,6 @@ body{
   z-index: 0;
 }
 
-/*.blog-container{
-  position: relative;
-  float: left;
-  max-width: 70vw;
-  height: 100%;
-  display: block;
-  z-index: 0;
-  overflow: scroll;
-}*/
-
 .blog-container{
   position: absolute;
   top: 25%;
@@ -167,17 +157,17 @@ body{
   max-width: 70vw;
   height: 100vh;
   background-color: yellow;
-  /*max-width: 70vw;
-  height: 100%;*/
-  /*display: block;*/
   z-index: 0;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .blog-container h1{
   margin: 0 auto;
-  padding: 10px;
+  padding-top: 2.5vh;
+  padding-left: calc((20% / 2) + 15px);
   color: black;
+
   text-align: left;
   font-weight: lighter;
 }
@@ -186,7 +176,6 @@ body{
   list-style: none;
   padding: 5px;
   margin: 0;
-  overflow: scroll;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -199,6 +188,7 @@ body{
   display: block;
   position: relative;
   float: left;
+  white-space: nowrap;
 }
 
 .blog-post-preview a{
@@ -213,6 +203,7 @@ body{
   border: 1px solid rgba(255, 255, 255, 0.5);
   margin: 10px;
   text-decoration: none;
+  white-space: normal;
 }
 
 .blog-post-preview a:hover{
@@ -246,7 +237,7 @@ body{
   margin: 0;
   padding-top: 10px;
   max-height: 20vh;
-  overflow: auto;
+  overflow: hidden;
   font-weight: lighter;
 }
 .blog-post-preview img{
@@ -259,7 +250,8 @@ body{
   height: 100vh;
   margin: 0 auto;
   white-space: nowrap;
-  overflow: auto;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .blog-post{
@@ -283,25 +275,31 @@ body{
 }
 
 .projects-container{
-  position: relative;
-  float: left;
-  max-width: 960;
-  max-height: 100%;
-  margin: 100px;
-  display: block;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -25%);
+  max-width: 70vw;
+  height: 100vh;
+  background-color: yellow;
   z-index: 0;
-  overflow: hidden;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .projects-container h1{
   margin: 0 auto;
-  padding: 10px;
+  padding-top: 2.5vh;
+  padding-left: calc((20% / 2) + 15px);
+  color: black;
   text-align: left;
   font-weight: lighter;
 }
 
 .projects-list ul{
-  background-color: purple;
   list-style: none;
   padding: 5px;
   margin: 0;
@@ -311,9 +309,19 @@ body{
   justify-content: center;
 }
 
-.projects-list ul a{
-  display: flex;
-  flex-direction: column;
+.project-preview{
+  width: 80%;
+  height: auto;
+  display: block;
+  position: relative;
+  float: left;
+  white-space: nowrap;
+}
+
+.project-preview a{
+  display: block;
+  position: relative;
+  float: left;
   transition: all 0.3s;
   margin: 0 -20px;
   flex: 1;
@@ -321,24 +329,35 @@ body{
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   margin: 10px;
-  align-items: center;
   text-decoration: none;
-  text-align: center;
+  white-space: normal;
 }
 
-.projects-list ul a:hover{
+.project-preview a:hover{
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.25);
   padding: 15px 10px;
   text-decoration: none;
   transition: all 0.3s;
 }
-.projects-list ul li a span h3{
-  margin: 0;
-  padding: 0;
-  font-weight: lighter;
+
+.project-preview-text{
+  position: relative;
+  display: block;
+  float: left;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 100%;
+  width: 50%;
 }
 
-.projects-list ul li a span h4{
+.project-preview-text h3{
+  margin: 0;
+  padding-bottom: 10px;
+  font-weight: lighter;
+  color: black;
+}
+
+.project-preview-text h4{
   margin: 0;
   padding: 0;
   font-weight: lighter;
