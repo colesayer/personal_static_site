@@ -4,12 +4,14 @@ import FaGithub from 'react-icons/lib/fa/github'
 import FaLinkedin from 'react-icons/lib/fa/linkedin'
 import MdColorLens from 'react-icons/lib/md/color-lens'
 import '../../layouts/index.css';
+import randomColor from 'randomcolor'
 
 class Header extends Component{
 
   state = {
     clicked: false,
     dropMenuActive: false,
+    randomColor: "",
 
   }
 
@@ -69,17 +71,24 @@ class Header extends Component{
     navigateTo("/blog")
   }
 
+  componentDidMount(){
+    const color = randomColor({luminosity: 'bright', hue: 'blue'})
+    this.setState({
+      randomColor: color,
+    })
+  }
+
   render(){
     var dropButton = ""
     var dropMenu = ""
     var sideLinksClass = ""
 
     if(this.state.clicked === false && this.state.dropMenuActive === false){
-      dropButton = <button className="dropbtn" onClick={this.handleClick} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
+      dropButton = <button className="dropbtn" style={{backgroundColor: `${this.state.randomColor}`}} onClick={this.handleClick} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
       dropMenu = ""
       sideLinksClass = "side-links"
     } else if (this.state.clicked === true || this.state.dropMenuActive === true) {
-      dropButton = <button className="dropbtnActive" onClick={this.handleClick}  onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
+      dropButton = <button className="dropbtnActive" style={{backgroundColor: `${this.state.randomColor}`}} onClick={this.handleClick}  onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
       dropMenu = <div className="dropdown-content" onMouseEnter={this.handleDropMenuActive} onMouseLeave={this.handleDropMenuInactive}>
                     <span style={{ padding: `5%`}} onClick={this.handleHomeClick}>Home</span>
                     <span style={{ padding: `5%`}} onClick={this.handleAboutClick}>About</span>
@@ -98,9 +107,9 @@ class Header extends Component{
         </div>
         <div className={sideLinksClass}>
           <ul>
-            <li><a href="https://www.linkedin.com/in/cole-shapiro-54646b9/" ><FaLinkedin /></a></li>
-            <li><a href="https://github.com/colesayer" target="_blank" ><FaGithub /></a></li>
-            <li><a href="http://www.jttnyc.com/6953,6954,6964" target="_blank"><MdColorLens /></a></li>
+            <li><a href="https://www.linkedin.com/in/cole-shapiro-54646b9/" style={{color: `${this.state.randomColor}`}}><FaLinkedin /></a></li>
+            <li><a href="https://github.com/colesayer" target="_blank" style={{color: `${this.state.randomColor}`}}><FaGithub /></a></li>
+            <li><a href="http://www.jttnyc.com/6953,6954,6964" target="_blank" style={{color: `${this.state.randomColor}`}}><MdColorLens /></a></li>
           </ul>
         </div>
       </div>
