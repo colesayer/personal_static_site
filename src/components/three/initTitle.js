@@ -4,7 +4,8 @@ import * as THREE from 'three';
 import * as OBJLoader from 'three-obj-loader';
 OBJLoader.default(THREE)
 
-export function initTitle(threeLoader, objFile, titleColor, titleGroup, idx){
+export function initTitle(threeLoader, objFile, titleColor, titleGroup, idx, isMobile){
+  console.log("isMobile", isMobile)
   let titleMaterial = new THREE.MeshPhongMaterial({color: `${titleColor}`})
 
   let titleLoader = new threeLoader.OBJLoader()
@@ -66,7 +67,7 @@ export function initTitle(threeLoader, objFile, titleColor, titleGroup, idx){
         break;
     }
     object.position.x = (letterPosition)
-    object.position.y = -2
+    isMobile ? object.position.y = -2 : object.position.y = -2
     titleGroup.add(object)
     initTranslateTween(object)
     initRotateTween(object)

@@ -2,7 +2,7 @@
 path: "/drawing-in-react"
 date: "2017-11-09"
 title: "Drawing in React"
-img: "http://res.cloudinary.com/dwnehv6tb/image/upload/v1516487616/mspaint_d0a5jl.jpg"
+img: "http://res.cloudinary.com/dwnehv6tb/image/upload/v1516665144/mspaint_cbrbg1.jpg"
 ---
 
 I wanted to check out the `<canvas>` element in JS and see how it might be utilized in a React environment. There are some supposedly great libraries like Konva.js and its sibling React Konva for drawing complex graphics on canvas, but then I read arguments for using an `<svg>` element instead, which deals better with Reacts component lifecycles and, because its vector based rather than rasterized, doesn’t pixelate if you scale up.

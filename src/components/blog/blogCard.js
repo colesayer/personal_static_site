@@ -4,26 +4,86 @@ import randomColor from 'randomcolor'
 
 
 class BlogCard extends Component{
+  state = {
+    bgColor: "",
+    randomColor: "",
+    width: ""
+  }
+
+  handleMouseEnter = () => {
+    var hexColor = randomColor({luminosity: 'bright'})
+    var rgbColor = hexToRgb(hexColor)
+    var bgRGBA = "rgba(" + `${rgbColor.r}` + ", " + `${rgbColor.g}` + ", " + `${rgbColor.b}` + ", 0.5)"
+
+    this.setState({
+      bgColor: bgRGBA
+    })
+  }
+
+  handleMouseLeave = () => {
+    this.setState({
+      bgColor: ""
+    })
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth })
+  }
+
+  componentDidMount(){
+    this.setState({
+      randomColor: randomColor({luminosity: 'dark', count: 2}),
+      width: window.innerWidth,
+    })
+    window.addEventListener('resize', this.handleWindowSizeChange)
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('resize', this.handleWindowSizeChange)
+  }
+
   render(){
+    const { width } = this.state;
+    const isMobile = width <= 500;
 
     const post = this.props.post
-    console.log("BLOG CARD", post)
-    const color = randomColor({luminosity: 'dark'})
+
+    var textOrder = 1
+    var imgOrder = 2
+    if(this.state.width <= 500){
+      textOrder = 1
+      imgOrder = 2
+    } else if(this.props.idx % 2 === 0){
+      textOrder = 1
+      imgOrder = 2
+    } else {
+      textOrder = 2
+      imgOrder = 1
+    }
     return(
-      <li className="blog-post-preview">
-        <Link to={post.frontmatter.path} style={{color: `${color}`, borderColor: `${color}`}}>
-          <div className="blog-post-preview-text">
-            <h3>{post.frontmatter.title}</h3>
-            <h4>{post.frontmatter.date}</h4>
-            <p>{post.excerpt}</p>
+        <Link to={post.frontmatter.path} style={{color: `${this.state.randomColor[0]}`, borderColor: `${this.state.randomColor[0]}`}}>
+          <div className="blog-card" style={{backgroundColor: `${this.state.bgColor}`}} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+            <div className="blog-card-text" style={{order: textOrder}}>
+              <h3>{post.frontmatter.title}</h3>
+              <h4 className="blog-date">{post.frontmatter.date}</h4>
+              <p style={{color: `${this.state.randomColor[1]}`}}>{post.excerpt}</p>
+            </div>
+            <div className="blog-card-image" style={{order: imgOrder}}>
+              <img src={post.frontmatter.img}/>
+            </div>
           </div>
-          <img src={post.frontmatter.img}/>
         </Link>
-      </li>
     )
   }
 }
 
 export default BlogCard
 
-// <p>{post.excerpt}</p>
+function hexToRgb(hex){
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+  } : null;
+}

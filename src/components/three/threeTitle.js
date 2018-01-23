@@ -21,6 +21,9 @@ class ThreeTitle extends Component{
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
 
+    this.isMobile
+    width <=500 ? this.isMobile = true : this.isMobile = false
+
     //SCENE
     this.scene = new THREE.Scene()
 
@@ -79,16 +82,16 @@ class ThreeTitle extends Component{
     this.floorMaterial.roughness = .7;
     this.floor = new THREE.Mesh(this.floorGeometry, this.floorMaterial)
     this.floor.rotation.x = - Math.PI / 2
-    this.floor.position.y = -4.05
+    this.isMobile ? this.floor.position.y = -4.05 : this.floor.position.y = -4.05
     this.floor.receiveShadow = true
     this.scene.add(this.floor)
 
     //MOBILE
-    if(this.mount.clientWidth < 500){
+    if(this.isMobile){
       console.log(this.camera)
-      this.camera.position.z = 40
-      this.camera.position.x = 30
-      this.camera.position.y = 10
+      this.camera.position.z = 45
+      this.camera.position.x = 15
+      this.camera.position.y = 15
       this.camera.lookAt(-1, -1, 0)
       this.controls.target.set(-1, -1, 0)
       this.scene.fog = new THREE.Fog(0xffffff, 55, 100);
@@ -141,7 +144,7 @@ class ThreeTitle extends Component{
       let objFile = this.objFiles[idx]
       let titleColor = this.titleColors[idx]
 
-      initTitle(this.THREE, objFile, titleColor, this.titleGroup, idx )
+      initTitle(this.THREE, objFile, titleColor, this.titleGroup, idx, this.isMobile )
     }
   }
 

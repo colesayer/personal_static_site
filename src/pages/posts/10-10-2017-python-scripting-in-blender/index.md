@@ -2,7 +2,7 @@
 path: "/python-scripting-in-blender"
 date: "2017-10-10"
 title: "Python Scripting in Blender"
-img: "http://res.cloudinary.com/dwnehv6tb/image/upload/v1516487616/Blender_Character_PT2_1_ep7smi.jpg"
+img: "http://res.cloudinary.com/dwnehv6tb/image/upload/v1516666004/3D-Window_BBB_Blender_3_1_rgzanj.png"
 ---
 
 If you’ve never heard of it, Blender is an amazing, free, open source, full featured 3d software toolset. I’ve used it for 3d animation, 3d printing, and design.
