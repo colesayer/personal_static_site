@@ -1,5 +1,6 @@
 import {initTranslateTween} from './initTranslateTween.js'
 import {initRotateTween} from './initRotateTween.js'
+import {initPosition} from './initPosition.js'
 import * as THREE from 'three';
 import * as OBJLoader from 'three-obj-loader';
 OBJLoader.default(THREE)
@@ -25,49 +26,18 @@ export function initTitle(threeLoader, objFile, titleColor, titleGroup, idx, isM
         child.castShadow = true
       }
     })
-    object.scale.set(3, 3, 3)
-    var letterPosition = 0
 
-    switch(idx) {
-    case 0:
-        letterPosition = -8.5
-        break;
-    case 1:
-        letterPosition = -6.25
-        break;
-    case 2:
-        letterPosition = -4.4
-        break;
-    case 3:
-        letterPosition = -3
-        break;
-    case 4:
-        letterPosition = -1
-        break;
-    case 5:
-        letterPosition = 0.5
-        break;
-    case 6:
-        letterPosition = 2.5
-        break;
-    case 7:
-        letterPosition = 4.25
-        break;
-    case 8:
-        letterPosition = 5.35
-        break;
-    case 9:
-        letterPosition = 6.75
-        break;
-    case 10:
-        letterPosition = 8.5
-        break;
-    default:
-        letterPosition = 0
-        break;
-    }
-    object.position.x = (letterPosition)
-    isMobile ? object.position.y = -2 : object.position.y = -2
+    var letterPosition = initPosition(isMobile, idx)
+    var scale = letterPosition.scale
+    object.scale.set(scale, scale, scale)
+
+
+
+    object.position.x = (letterPosition.x - 1)
+    object.position.y = (letterPosition.y)
+    object.position.z = (letterPosition.z)
+    console.log("Z",object.position.z)
+    // isMobile ? object.position.y = -2 : object.position.y = -2
     titleGroup.add(object)
     initTranslateTween(object)
     initRotateTween(object)

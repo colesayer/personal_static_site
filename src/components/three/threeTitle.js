@@ -58,7 +58,7 @@ class ThreeTitle extends Component{
 
     //POINTLIGHT
     this.pointLight = new THREE.PointLight( 0xffffff, 1 )
-    this.pointLight.position.set( 0, 5, 5 )
+
     this.pointLight.castShadow = true
     this.scene.add(this.pointLight)
 
@@ -67,7 +67,11 @@ class ThreeTitle extends Component{
 
     //ADD TITLE
     this.titleGroup = new THREE.Group()
-    this.objFiles = ['./models/title/1-1-C.obj', './models/title/1-2-O.obj', './models/title/1-3-L.obj', './models/title/1-4-E.obj', './models/title/2-1-S.obj', './models/title/2-2-H.obj', './models/title/2-3-A.obj', './models/title/2-4-P.obj', './models/title/2-5-I.obj', './models/title/2-6-R.obj', './models/title/2-7-O.obj' ]
+    if(this.isMobile){
+      this.objFiles = ['./models/title/1-1-C.obj', './models/title/1-2-O.obj', './models/title/1-3-L.obj', './models/title/1-4-E.obj']
+    } else {
+      this.objFiles = ['./models/title/1-1-C.obj', './models/title/1-2-O.obj', './models/title/1-3-L.obj', './models/title/1-4-E.obj', './models/title/2-1-S.obj', './models/title/2-2-H.obj', './models/title/2-3-A.obj', './models/title/2-4-P.obj', './models/title/2-5-I.obj', './models/title/2-6-R.obj', './models/title/2-7-O.obj' ]
+    }
     this.titleColors = randomColor({luminosity: 'bright', count: 11})
 
     this.addTitle()
@@ -76,7 +80,11 @@ class ThreeTitle extends Component{
     this.scene.add(this.titleGroup)
 
     //ADD FLOOR
-    var floorColor = randomColor({luminosity: 'bright'})
+    // var floorColors = ["#4fd5f9", "#6635ea", "#21b226", "#dd4b81", "#4cefd1", "#0fc4a0", "#57fc05", "#57ede8", "#26c91e"]
+    // var floorIdx = (Math.floor(Math.random() * (8 - 0 + 1)) + 0)
+    // var floorColor = floorColors[floorIdx]
+    // console.log("FLOOR COLOR", floorColor)
+    var floorColor = "#21b226"
     this.floorGeometry = new THREE.PlaneBufferGeometry(200, 200, 32, 32)
     this.floorMaterial = new THREE.MeshStandardMaterial({color: `${floorColor}`})
     this.floorMaterial.roughness = .7;
@@ -89,22 +97,24 @@ class ThreeTitle extends Component{
     //MOBILE
     if(this.isMobile){
       console.log(this.camera)
-      this.camera.position.z = 45
-      this.camera.position.x = 15
-      this.camera.position.y = 15
-      this.camera.lookAt(-1, -1, 0)
-      this.controls.target.set(-1, -1, 0)
+      this.camera.position.z = 18
+      this.camera.position.x = 5
+      this.camera.position.y = 2
+      this.camera.lookAt(-0.87, -1, 0)
+      this.controls.target.set(-0.87, -1, 0)
       this.scene.fog = new THREE.Fog(0xffffff, 55, 100);
+      this.pointLight.position.set(-3, 5, -5 )
       this.pointLight.shadow.mapSize.width = 512;
       this.pointLight.shadow.mapSize.height = 512;
     } else {
       //DESKTOP
-      this.camera.position.z = 20
+      this.camera.position.z = 18
       this.camera.position.x = 1
-      this.camera.position.y = 1.5
-      this.scene.fog = new THREE.Fog(0xffffff, 8, 50);
-      this.camera.lookAt(-1.5, -1, 0)
-      this.controls.target.set(-1.5, -1, 0)
+      this.camera.position.y = 0
+      this.scene.fog = new THREE.Fog(0xffffff, 12, 50);
+      this.camera.lookAt(-2.15, -1, 0)
+      this.controls.target.set(-2.15, -1, 0)
+      this.pointLight.position.set( 0, 5, 5 )
       this.pointLight.shadow.mapSize.width = 512;
       this.pointLight.shadow.mapSize.height = 512;
     }
