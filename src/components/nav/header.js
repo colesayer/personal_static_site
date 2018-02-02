@@ -12,7 +12,6 @@ class Header extends Component{
     clicked: false,
     dropMenuActive: false,
     randomColor: "",
-
   }
 
   handleClick = (e) => {
@@ -29,6 +28,7 @@ class Header extends Component{
   handleMouseLeave = (e) => {
     e.preventDefault()
     this.setState({clicked: false, dropMenuActive: false})
+
   }
 
   handleDropMenuActive = (e) => {
@@ -38,7 +38,7 @@ class Header extends Component{
 
   handleDropMenuInactive = (e) => {
     e.preventDefault()
-    if(this.state.dropMenuActive === true)this.setState({dropMenuActive: false, clicked: false})
+    this.setState({dropMenuActive: false, clicked: false})
   }
 
   handleMenuClick = (e) => {
@@ -72,6 +72,9 @@ class Header extends Component{
   }
 
   componentDidMount(){
+    const width = window.innerWidth
+    this.isMobile
+    width <=500 ? this.isMobile = true : this.isMobile = false
     const color = randomColor({luminosity: 'bright', hue: 'blue'})
     this.setState({
       randomColor: color,
@@ -83,21 +86,40 @@ class Header extends Component{
     var dropMenu = ""
     var sideLinksClass = ""
 
-    if(this.state.clicked === false && this.state.dropMenuActive === false){
-      dropButton = <button className="dropbtn" style={{backgroundColor: `${this.state.randomColor}`}} onClick={this.handleClick} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
-      dropMenu = ""
-      sideLinksClass = "side-links"
-    } else if (this.state.clicked === true || this.state.dropMenuActive === true) {
-      dropButton = <button className="dropbtnActive" style={{backgroundColor: `${this.state.randomColor}`}} onClick={this.handleClick}  onMouseLeave={this.handleMouseLeave}><span>CS</span></button>
-      dropMenu = <div className="dropdown-content" onMouseEnter={this.handleDropMenuActive} onMouseLeave={this.handleDropMenuInactive}>
-                    <span style={{ padding: `5%`}} onClick={this.handleHomeClick}>Home</span>
-                    <span style={{ padding: `5%`}} onClick={this.handleAboutClick}>About</span>
-                    <span style={{ padding: `5%`}} onClick={this.handleProjectsClick}>Projects</span>
-                    <span style={{ padding: `5%`}} onClick={this.handleBlogClick}>Blog</span>
-                </div>
-      sideLinksClass = "side-links-open"
-    }
+    if(this.isMobile){
+      if(this.state.clicked === false && this.state.dropMenuActive === false){
+        dropButton = <button className="dropbtn" style={{backgroundColor: `${this.state.randomColor}`}} onClick={this.handleClick} ><span>CS</span></button>
+        dropMenu = ""
+        sideLinksClass = "side-links"
 
+      } else if (this.state.clicked === true || this.state.dropMenuActive === true) {
+        dropButton = <button className="dropbtnActive" style={{backgroundColor: `${this.state.randomColor}`}} onClick={this.handleClick}><span>CS</span></button>
+        dropMenu = <div className="dropdown-content">
+                      <span style={{ padding: `5%`}} onClick={this.handleHomeClick}>Home</span>
+                      <span style={{ padding: `5%`}} onClick={this.handleAboutClick}>About</span>
+                      <span style={{ padding: `5%`}} onClick={this.handleProjectsClick}>Projects</span>
+                      <span style={{ padding: `5%`}} onClick={this.handleBlogClick}>Blog</span>
+                  </div>
+        sideLinksClass = "side-links-open"
+
+      }
+    } else {
+      if(this.state.clicked === false && this.state.dropMenuActive === false){
+        dropButton = <button className="dropbtn" style={{backgroundColor: `${this.state.randomColor}`}} onMouseEnter={this.handleMouseEnter}><span>CS</span></button>
+        dropMenu = ""
+        sideLinksClass = "side-links"
+      } else if (this.state.clicked === true || this.state.dropMenuActive === true) {
+        dropButton = <button className="dropbtnActive" style={{backgroundColor: `${this.state.randomColor}`}}><span>CS</span></button>
+        dropMenu =  <div className="dropdown-content" onMouseLeave={this.handleDropMenuInactive}>
+                      <span style={{ padding: `5%`}} onClick={this.handleHomeClick}>Home</span>
+                      <span style={{ padding: `5%`}} onClick={this.handleAboutClick}>About</span>
+                      <span style={{ padding: `5%`}} onClick={this.handleProjectsClick}>Projects</span>
+                      <span style={{ padding: `5%`}} onClick={this.handleBlogClick}>Blog</span>
+                    </div>
+
+        sideLinksClass = "side-links-open"
+      }
+    }
 
     return(
       <div>

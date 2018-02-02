@@ -4,9 +4,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import Header from '../components/nav/header.js'
 
-
 import './index.css'
-
 
 const TemplateWrapper = ({children}) => (
       <div>
@@ -34,6 +32,7 @@ const TemplateWrapper = ({children}) => (
           }}
         >
           {children()}
+
         </div>
       </div>
     )

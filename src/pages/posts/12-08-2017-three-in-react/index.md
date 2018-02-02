@@ -5,4 +5,4 @@ title: "Using Three.js in React"
 img: "http://res.cloudinary.com/dwnehv6tb/image/upload/v1516665144/teapot_lakeht.jpg"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Coming soon! How to use the Three.js library in React using React's built in component lifecycle methods. 

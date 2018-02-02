@@ -18,6 +18,8 @@ class ThreeTitle extends Component{
  }
 
   componentDidMount(){
+    window.addEventListener( 'resize', this.onWindowResize, false );
+
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
 
@@ -80,11 +82,7 @@ class ThreeTitle extends Component{
     this.scene.add(this.titleGroup)
 
     //ADD FLOOR
-    // var floorColors = ["#4fd5f9", "#6635ea", "#21b226", "#dd4b81", "#4cefd1", "#0fc4a0", "#57fc05", "#57ede8", "#26c91e"]
-    // var floorIdx = (Math.floor(Math.random() * (8 - 0 + 1)) + 0)
-    // var floorColor = floorColors[floorIdx]
-    // console.log("FLOOR COLOR", floorColor)
-    var floorColor = "#21b226"
+    const floorColor = "#21b226"
     this.floorGeometry = new THREE.PlaneBufferGeometry(200, 200, 32, 32)
     this.floorMaterial = new THREE.MeshStandardMaterial({color: `${floorColor}`})
     this.floorMaterial.roughness = .7;
@@ -108,12 +106,12 @@ class ThreeTitle extends Component{
       this.pointLight.shadow.mapSize.height = 512;
     } else {
       //DESKTOP
-      this.camera.position.z = 18
+      this.camera.position.z = 25
       this.camera.position.x = 1
       this.camera.position.y = 0
-      this.scene.fog = new THREE.Fog(0xffffff, 12, 50);
-      this.camera.lookAt(-2.15, -1, 0)
-      this.controls.target.set(-2.15, -1, 0)
+      this.scene.fog = new THREE.Fog(0xffffff, 18, 50);
+      this.camera.lookAt(-2.15, -2, 0)
+      this.controls.target.set(-2.15, -2, 0)
       this.pointLight.position.set( 0, 5, 5 )
       this.pointLight.shadow.mapSize.width = 512;
       this.pointLight.shadow.mapSize.height = 512;
@@ -127,6 +125,7 @@ class ThreeTitle extends Component{
   componentWillUnmount() {
     this.stop()
     this.mount.removeChild(this.renderer.domElement)
+    window.removeEventListener('resize', this.onWindowResize, false)
   }
 
   start() {
@@ -158,13 +157,23 @@ class ThreeTitle extends Component{
     }
   }
 
+  onWindowResize = () => {
+    this.camera.aspect = this.mount.clientWidth / this.mount.clientHeight;
+    this.camera.updateProjectionMatrix();
+
+   this.renderer.setSize( this.mount.clientWidth, this.mount.clientHeight );
+  }
+
   render(){
     const color = randomColor({luminosity: 'light'})
     return(
-      <div
-       style={{ height: `100vh`, width: `100%`}}
-       ref={(mount) => { this.mount = mount }}
-      />
+      <div>
+        <div className="pop-up"><div className="pop-up-text"></div></div>
+        <div
+         style={{ height: `100vh`, width: `100%`}}
+         ref={(mount) => { this.mount = mount }}
+        />
+      </div>
     )
   }
 }

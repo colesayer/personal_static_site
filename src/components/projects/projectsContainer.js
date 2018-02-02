@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Link from 'gatsby-link'
 import Helmet from "react-helmet";
 import randomColor from 'randomcolor'
+import { logos } from '../../components/services/logos.js'
 
 
 class ProjectsContainer extends Component{
@@ -48,17 +49,12 @@ class ProjectsContainer extends Component{
         <Link to="/projects/my-life-socks">
           <div className="project-card" style={{borderColor: `${this.state.randomColors[0]}`, backgroundColor: `${this.state.sock}`}} onMouseEnter={this.handleMouseEnter.bind(this, "sock")} onMouseLeave={this.handleMouseLeave.bind(this, "sock")}>
             <div className="project-card-image">
-              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/v1516506826/socks_q2wrxu.jpg"/>
+              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/socks_yy6yg2.jpg"/>
             </div>
             <div className="project-card-text">
               <h3 id="life-socks">My Life Socks</h3>
               <h4>A fully customizable, photorealistic, virtual product display.</h4>
-              <ul style={{color: `${this.state.randomColors[0]}` }}>
-                <li>3D modeled using Blender</li>
-                <li>Utilized React, Redux, and Three.js for WebGL UI</li>
-                <li>Built API using Ruby on Rails with full CRUD functionality</li>
-                <li>Incorporated Cloudinary for image handling</li>
-              </ul>
+              {logos(["react", "redux", "rails", "threejs", "blender"])}
             </div>
           </div>
         </Link>
@@ -67,31 +63,22 @@ class ProjectsContainer extends Component{
             <div className="project-card-text">
             <h3 id="gallerina">Gallerina</h3>
               <h4>A lightning fast exhibition design tool for gallerists, curators, and artists.</h4>
-              <ul style={{color: `${this.state.randomColors[1]}` }}>
-                <li>Used Three.js for 3d exhibition design interface</li>
-                <li>Leveraged React and Redux for interactive UI</li>
-                <li>Built API using Ruby on Rails with full CRUD functionality</li>
-                <li>Utilized Knock and JWT for user authentication</li>
-              </ul>
+              {logos(["react", "redux", "threejs", "rails"])}
             </div>
             <div className="project-card-image">
-              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/v1516506826/gallerina_rasglv.jpg"/>
+              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/gallerina_inqeqa.jpg"/>
             </div>
           </div>
         </Link>
         <Link to="/projects/hey-mr-postman">
           <div key="postman" className="project-card" style={{borderColor: `${this.state.randomColors[2]}`, backgroundColor: `${this.state.postman}`}} onMouseEnter={this.handleMouseEnter.bind(this, "postman")} onMouseLeave={this.handleMouseLeave.bind(this, "postman")}>
             <div className="project-card-image">
-              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/v1516506826/postman_fgvssj.jpg"/>
+              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/postman_qokeax.jpg"/>
             </div>
             <div className="project-card-text">
             <h3 id="postman">HEY MR POSTMAN</h3>
               <h4>An exciting new way to read and write emails utilizing the power of WebGL.</h4>
-              <ul style={{color: `${this.state.randomColors[2]}` }}>
-                <li>Used React for interactive UI</li>
-                <li>Used Three.js CSS3d Renderer for AJAX functionality in a WebGL environment</li>
-                <li>Built API using Ruby on Rails with full CRUD functionality</li>
-              </ul>
+              {logos(["react", "threejs", "rails"])}
             </div>
           </div>
         </Link>
@@ -100,14 +87,10 @@ class ProjectsContainer extends Component{
             <div className="project-card-text">
             <h3 id="dnd">D&D Campaign Manager</h3>
             <h4>The daunting task of creating a character for Dungeons and Dragons and organizing a campaign made easy.</h4>
-            <ul style={{color: `${this.state.randomColors[3]}` }}>
-              <li>Used Bootstrap and custom CSS to design front end</li>
-              <li>Built with Ruby On Rails following MVC pattern</li>
-              <li>Utilized RestClient to incorporate D&D API</li>
-            </ul>
+            {logos(["rails", "postgresql", "bootstrap"])}
             </div>
             <div className="project-card-image">
-              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/v1516506826/dnd_w7p9cb.jpg"/>
+              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/dnd_tuhdt7.jpg"/>
             </div>
           </div>
         </Link>
