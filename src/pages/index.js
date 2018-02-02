@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Link from 'gatsby-link'
+import ThreeTitle from '../components/three/threeTitle.js'
 
-const IndexPage = () => (
-  <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-    <Link to="/blog/">Go to blog</Link>
-  </div>
-)
+
+class IndexPage extends Component {
+
+  render(){
+    return(
+      <div style={{width: '100%', height: '100%'}}>
+        <ThreeTitle />
+      </div>
+    )
+  }
+}
 
 export default IndexPage

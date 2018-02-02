@@ -1,12 +1,8 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import ProjectsContainer from '../components/projects/projectsContainer'
 
-const ProjectPage = () => (
-  <div>
-    <h1>Project Page</h1>
-    <p>Projects</p>
-    <Link to="/">Go back to the homepage</Link>
-  </div>
+const ProjectsPage = () => (
+    <ProjectsContainer />
 )
 
-export default ProjectPage
+export default ProjectsPage

@@ -1,32 +1,14 @@
-import React from "react";
-import Link from "gatsby-link";
-import Helmet from "react-helmet";
+import React from 'react'
+import BlogContainer from '../components/blog/blogContainer.js'
 
-// import '../css/index.css'; // add some style if you want!
+const BlogPage = ({data}) => (
+    <BlogContainer data={data}/>
+)
 
-export default function BlogPage({ data }) {
-  const { edges: posts } = data.allMarkdownRemark;
-  return (
-    <div className="blog-posts">
-      {posts
-        .filter(post => post.node.frontmatter.title.length > 0)
-        .map(({ node: post }) => {
-          return (
-            <div className="blog-post-preview" key={post.id}>
-              <h1>
-                <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-              </h1>
-              <h2>{post.frontmatter.date}</h2>
-              <p>{post.excerpt}</p>
-            </div>
-          );
-        })}
-    </div>
-  );
-}
+export default BlogPage
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query BlogQuery {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
@@ -36,6 +18,7 @@ export const pageQuery = graphql`
             title
             date(formatString: "MMMM DD, YYYY")
             path
+            img
           }
         }
       }

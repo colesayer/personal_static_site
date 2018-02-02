@@ -4,7 +4,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
@@ -17,12 +16,6 @@ module.exports = {
      resolve: 'gatsby-transformer-remark',
      options: {
        plugins: [] // just in case those previously mentioned remark plugins sound cool :)
-     }
-   },
-   {
-     resolve: `gatsby-plugin-typography`,
-     options: {
-       pathToConfigModule: `src/utils/typography.js`,
      }
    },
   ],

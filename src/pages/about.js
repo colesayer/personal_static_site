@@ -1,11 +1,9 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import AboutContainer from '../components/about/aboutContainer.js'
 
 const AboutPage = () => (
   <div>
-    <h1>About Page</h1>
-    <p>About ME</p>
-    <Link to="/">Go back to the homepage</Link>
+    <AboutContainer />
   </div>
 )
 

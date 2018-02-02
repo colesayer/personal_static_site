@@ -1,55 +1,41 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import Header from '../components/nav/header.js'
 
-import './index.scss'
+import './index.css'
 
-const ListLink = props =>
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
-    <Link to={props.to} style={{ textShadow: `none`, backgroundImage: `none`}}>
-      {props.children}
-    </Link>
-  </li>
+const TemplateWrapper = ({children}) => (
+      <div>
+        <Helmet
+          title="Cole Shapiro"
+          meta={[
+            { name: 'description', content: 'Sample' },
+            { name: 'keywords', content: 'sample, something' },
+          ]}
+        />
+        <Header />
 
-const Header = () => (
-  <div >
-    <header style={{ marginBottom: `1.5rem`, backgroundColor: `black`}}>
-      <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-        <h3 style={{ display: `inline` }}>Cole Shapiro</h3>
-      </Link>
-    <ul style={{ listStyle: `none`, float: `right` }}>
-      <ListLink to="/about/">About</ListLink>
-      <ListLink to="/projects/">Projects</ListLink>
-      <ListLink to="/contact/">Contact</ListLink>
-      <ListLink to="/blog/">Blog</ListLink>
-    </ul>
-    </header>
-  </div>
-)
+        <div
+          style={{
+            maxWidth: '100%',
+            maxHeight: '100vh',
+            padding: 0,
+            paddingTop: 0,
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            overflow: 'scroll',
+          }}
+        >
+          {children()}
 
-const TemplateWrapper = ({ children }) => (
-  <div style={{ margin: `0 auto`, maxWidth: 800, padding: `1.25rem 1rem` }}>
-    <Helmet
-      title="Cole Shapiro"
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
-      {children()}
-    </div>
-  </div>
-)
+        </div>
+      </div>
+    )
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
