@@ -167,13 +167,10 @@ class ThreeTitle extends Component{
   render(){
     const color = randomColor({luminosity: 'light'})
     return(
-      <div>
-        <div className="pop-up"><div className="pop-up-text"></div></div>
-        <div
+      <div
          style={{ height: `100vh`, width: `100%`}}
          ref={(mount) => { this.mount = mount }}
         />
-      </div>
     )
   }
 }
