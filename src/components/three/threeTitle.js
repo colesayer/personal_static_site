@@ -74,7 +74,7 @@ class ThreeTitle extends Component{
     } else {
       this.objFiles = ['./models/title/1-1-C.obj', './models/title/1-2-O.obj', './models/title/1-3-L.obj', './models/title/1-4-E.obj', './models/title/2-1-S.obj', './models/title/2-2-H.obj', './models/title/2-3-A.obj', './models/title/2-4-P.obj', './models/title/2-5-I.obj', './models/title/2-6-R.obj', './models/title/2-7-O.obj' ]
     }
-    this.titleColors = randomColor({luminosity: 'bright', count: 11})
+    this.titleColors = randomColor({luminosity: 'dark', count: 11})
 
     this.addTitle()
 
@@ -82,15 +82,23 @@ class ThreeTitle extends Component{
     this.scene.add(this.titleGroup)
 
     //ADD FLOOR
-    const floorColor = "#21b226"
-    this.floorGeometry = new THREE.PlaneBufferGeometry(200, 200, 32, 32)
-    this.floorMaterial = new THREE.MeshStandardMaterial({color: `${floorColor}`})
-    this.floorMaterial.roughness = .7;
-    this.floor = new THREE.Mesh(this.floorGeometry, this.floorMaterial)
-    this.floor.rotation.x = - Math.PI / 2
-    this.isMobile ? this.floor.position.y = -4.05 : this.floor.position.y = -4.05
-    this.floor.receiveShadow = true
-    this.scene.add(this.floor)
+    // const floorColor = "#21b226"
+    // this.floorGeometry = new THREE.PlaneBufferGeometry(200, 200, 32, 32)
+    // this.floorMaterial = new THREE.MeshStandardMaterial({color: `${floorColor}`})
+    // this.floorMaterial.roughness = .7;
+    // this.floor = new THREE.Mesh(this.floorGeometry, this.floorMaterial)
+    // this.floor.rotation.x = - Math.PI / 2
+    // this.isMobile ? this.floor.position.y = -4.05 : this.floor.position.y = -4.05
+    // this.floor.receiveShadow = true
+    // this.scene.add(this.floor)
+
+    this.floor2Geometry = new THREE.PlaneBufferGeometry(200, 200, 32, 32)
+    this.floor2Material = new THREE.ShadowMaterial({opacity:.2})
+    this.floor2 = new THREE.Mesh(this.floor2Geometry, this.floor2Material)
+    this.floor2.rotation.x = - Math.PI / 2
+    this.isMobile ? this.floor2.position.y = -4.05 : this.floor2.position.y = -4.05
+    this.floor2.receiveShadow = true
+    this.scene.add(this.floor2)
 
     //MOBILE
     if(this.isMobile){
@@ -100,7 +108,7 @@ class ThreeTitle extends Component{
       this.camera.position.y = 2
       this.camera.lookAt(-0.87, -1, 0)
       this.controls.target.set(-0.87, -1, 0)
-      this.scene.fog = new THREE.Fog(0xffffff, 55, 100);
+      this.scene.fog = new THREE.Fog(0xfff000, 55, 100);
       this.pointLight.position.set(-3, 5, -5 )
       this.pointLight.shadow.mapSize.width = 512;
       this.pointLight.shadow.mapSize.height = 512;
@@ -109,7 +117,7 @@ class ThreeTitle extends Component{
       this.camera.position.z = 25
       this.camera.position.x = 1
       this.camera.position.y = 0
-      this.scene.fog = new THREE.Fog(0xffffff, 18, 50);
+      this.scene.fog = new THREE.Fog(0xfff000, 18, 50);
       this.camera.lookAt(-2.15, -2, 0)
       this.controls.target.set(-2.15, -2, 0)
       this.pointLight.position.set( 0, 5, 5 )

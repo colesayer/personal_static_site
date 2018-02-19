@@ -45,9 +45,11 @@ class ProjectsContainer extends Component{
   render(){
     return(
       <div className="projects-container">
-        <h1 style={{color: `${this.state.randomColors[4]}`}}>Some things I've made:</h1>
-        <Link to="/projects/my-life-socks">
-          <div className="project-card" style={{borderColor: `${this.state.randomColors[0]}`, backgroundColor: `${this.state.sock}`}} onMouseEnter={this.handleMouseEnter.bind(this, "sock")} onMouseLeave={this.handleMouseLeave.bind(this, "sock")}>
+        <div className="projects-header">
+          <h2 style={{color: `${this.state.randomColors[4]}`}}>Some things I've made:</h2>
+        </div>
+        <Link to="/projects/my-life-socks" style={{borderColor: `${this.state.randomColors[0]}`, backgroundColor: `${this.state.sock}`}} onMouseEnter={this.handleMouseEnter.bind(this, "sock")} onMouseLeave={this.handleMouseLeave.bind(this, "sock")}>
+          <div className="project-card">
             <div className="project-card-image">
               <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/socks_yy6yg2.jpg"/>
             </div>
@@ -58,8 +60,8 @@ class ProjectsContainer extends Component{
             </div>
           </div>
         </Link>
-        <Link to="/projects/gallerina">
-          <div className="project-card" style={{borderColor: `${this.state.randomColors[1]}`, backgroundColor: `${this.state.gallerina}`}} onMouseEnter={this.handleMouseEnter.bind(this, "gallerina")} onMouseLeave={this.handleMouseLeave.bind(this, "gallerina")}>
+        <Link to="/projects/gallerina" style={{borderColor: `${this.state.randomColors[1]}`, backgroundColor: `${this.state.gallerina}`}} onMouseEnter={this.handleMouseEnter.bind(this, "gallerina")} onMouseLeave={this.handleMouseLeave.bind(this, "gallerina")}>
+          <div className="project-card" >
             <div className="project-card-text">
             <h3 id="gallerina">Gallerina</h3>
               <h4>A lightning fast exhibition design tool for gallerists, curators, and artists.</h4>
@@ -70,8 +72,8 @@ class ProjectsContainer extends Component{
             </div>
           </div>
         </Link>
-        <Link to="/projects/hey-mr-postman">
-          <div key="postman" className="project-card" style={{borderColor: `${this.state.randomColors[2]}`, backgroundColor: `${this.state.postman}`}} onMouseEnter={this.handleMouseEnter.bind(this, "postman")} onMouseLeave={this.handleMouseLeave.bind(this, "postman")}>
+        <Link to="/projects/hey-mr-postman" style={{borderColor: `${this.state.randomColors[2]}`, backgroundColor: `${this.state.postman}`}} onMouseEnter={this.handleMouseEnter.bind(this, "postman")} onMouseLeave={this.handleMouseLeave.bind(this, "postman")}>
+          <div key="postman" className="project-card">
             <div className="project-card-image">
               <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/postman_qokeax.jpg"/>
             </div>
@@ -82,8 +84,8 @@ class ProjectsContainer extends Component{
             </div>
           </div>
         </Link>
-        <Link to="projects/dnd-campaign-manager">
-          <div className="project-card" style={{borderColor: `${this.state.randomColors[3]}`, backgroundColor: `${this.state.dnd}`}} onMouseEnter={this.handleMouseEnter.bind(this, "dnd")} onMouseLeave={this.handleMouseLeave.bind(this, "dnd")}>
+        <Link to="projects/dnd-campaign-manager" style={{borderColor: `${this.state.randomColors[3]}`, backgroundColor: `${this.state.dnd}`}} onMouseEnter={this.handleMouseEnter.bind(this, "dnd")} onMouseLeave={this.handleMouseLeave.bind(this, "dnd")}>
+          <div className="project-card" >
             <div className="project-card-text">
             <h3 id="dnd">D&D Campaign Manager</h3>
             <h4>The daunting task of creating a character for Dungeons and Dragons and organizing a campaign made easy.</h4>

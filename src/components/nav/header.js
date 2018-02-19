@@ -11,7 +11,7 @@ class Header extends Component{
   state = {
     clicked: false,
     dropMenuActive: false,
-    randomColor: "",
+    randomColor: "#fff000",
   }
 
   handleClick = (e) => {
@@ -75,7 +75,7 @@ class Header extends Component{
     const width = window.innerWidth
     this.isMobile
     width <=500 ? this.isMobile = true : this.isMobile = false
-    const color = randomColor({luminosity: 'bright', hue: 'blue'})
+    const color = randomColor({luminosity: 'dark'})
     this.setState({
       randomColor: color,
     })
@@ -85,6 +85,7 @@ class Header extends Component{
     var dropButton = ""
     var dropMenu = ""
     var sideLinksClass = ""
+
 
     if(this.isMobile){
       if(this.state.clicked === false && this.state.dropMenuActive === false){

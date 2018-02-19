@@ -61,10 +61,10 @@ class BlogCard extends Component{
       imgOrder = 1
     }
     return(
-        <Link to={post.frontmatter.path} style={{color: `${this.state.randomColor[0]}`, borderColor: `${this.state.randomColor[0]}`}}>
-          <div className="blog-card" style={{backgroundColor: `${this.state.bgColor}`}} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+        <Link to={post.frontmatter.path} style={{color: `${this.state.randomColor[0]}`, borderColor: `${this.state.randomColor[0]}`, backgroundColor: `${this.state.bgColor}`}} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+          <div className="blog-card" >
             <div className="blog-card-text" style={{order: textOrder}}>
-              <h3>{post.frontmatter.title}</h3>
+              <h1>{post.frontmatter.title}</h1>
               <h4 className="blog-date">{post.frontmatter.date}</h4>
               <p style={{color: `${this.state.randomColor[1]}`}}>{post.excerpt}</p>
             </div>
