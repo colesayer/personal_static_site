@@ -18,7 +18,9 @@ class BlogContainer extends Component{
 
     return(
       <div className="blog-container">
-        <h1 style={{color: `${color}`}}> Some things I've written: </h1>
+        <div className="blog-header">
+          <h2 style={{color: `${color}`}}>Some things I've written: </h2>
+        </div>
         {blogPosts}
       </div>
     )
