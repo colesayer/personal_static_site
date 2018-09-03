@@ -48,18 +48,6 @@ class ProjectsContainer extends Component{
         <div className="projects-header">
           <h2 style={{color: `${this.state.randomColors[4]}`}}>Some things I've made:</h2>
         </div>
-        <Link to="/projects/my-life-socks" style={{borderColor: `${this.state.randomColors[0]}`, backgroundColor: `${this.state.sock}`}} onMouseEnter={this.handleMouseEnter.bind(this, "sock")} onMouseLeave={this.handleMouseLeave.bind(this, "sock")}>
-          <div className="project-card">
-            <div className="project-card-image">
-              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/socks_yy6yg2.jpg"/>
-            </div>
-            <div className="project-card-text">
-              <h3 id="life-socks">My Life Socks</h3>
-              <h4>A fully customizable, photorealistic, virtual product display.</h4>
-              {logos(["react", "redux", "rails", "threejs", "blender"])}
-            </div>
-          </div>
-        </Link>
         <Link to="/projects/gallerina" style={{borderColor: `${this.state.randomColors[1]}`, backgroundColor: `${this.state.gallerina}`}} onMouseEnter={this.handleMouseEnter.bind(this, "gallerina")} onMouseLeave={this.handleMouseLeave.bind(this, "gallerina")}>
           <div className="project-card" >
             <div className="project-card-text">
@@ -72,27 +60,39 @@ class ProjectsContainer extends Component{
             </div>
           </div>
         </Link>
+        <Link to="/projects/wear-house-socks" style={{borderColor: `${this.state.randomColors[0]}`, backgroundColor: `${this.state.sock}`}} onMouseEnter={this.handleMouseEnter.bind(this, "sock")} onMouseLeave={this.handleMouseLeave.bind(this, "sock")}>
+          <div className="project-card">
+            <div className="project-card-image">
+              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/socks_yy6yg2.jpg"/>
+            </div>
+            <div className="project-card-text">
+              <h3 id="life-socks">Wear House Socks</h3>
+              <h4>A fully customizable, photorealistic, virtual product display.</h4>
+              {logos(["react", "redux", "rails", "threejs", "blender"])}
+            </div>
+          </div>
+        </Link>
         <Link to="/projects/hey-mr-postman" style={{borderColor: `${this.state.randomColors[2]}`, backgroundColor: `${this.state.postman}`}} onMouseEnter={this.handleMouseEnter.bind(this, "postman")} onMouseLeave={this.handleMouseLeave.bind(this, "postman")}>
           <div key="postman" className="project-card">
-            <div className="project-card-image">
-              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/postman_qokeax.jpg"/>
-            </div>
             <div className="project-card-text">
             <h3 id="postman">HEY MR POSTMAN</h3>
               <h4>An exciting new way to read and write emails utilizing the power of WebGL.</h4>
               {logos(["react", "threejs", "rails"])}
             </div>
+            <div className="project-card-image">
+              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/postman_qokeax.jpg"/>
+            </div>
           </div>
         </Link>
         <Link to="projects/dnd-campaign-manager" style={{borderColor: `${this.state.randomColors[3]}`, backgroundColor: `${this.state.dnd}`}} onMouseEnter={this.handleMouseEnter.bind(this, "dnd")} onMouseLeave={this.handleMouseLeave.bind(this, "dnd")}>
           <div className="project-card" >
+            <div className="project-card-image">
+              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/dnd_tuhdt7.jpg"/>
+            </div>
             <div className="project-card-text">
             <h3 id="dnd">D&D Campaign Manager</h3>
             <h4>The daunting task of creating a character for Dungeons and Dragons and organizing a campaign made easy.</h4>
             {logos(["rails", "postgresql", "bootstrap"])}
-            </div>
-            <div className="project-card-image">
-              <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517462724/dnd_tuhdt7.jpg"/>
             </div>
           </div>
         </Link>

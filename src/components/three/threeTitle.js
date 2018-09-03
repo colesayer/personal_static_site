@@ -34,8 +34,8 @@ class ThreeTitle extends Component{
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     this.renderer.setClearColor(0x000000, 0)
     this.renderer.setSize(width, height)
-    this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    // this.renderer.shadowMap.enabled = true;
+    // this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     this.mount.appendChild(this.renderer.domElement)
 
@@ -92,13 +92,13 @@ class ThreeTitle extends Component{
     // this.floor.receiveShadow = true
     // this.scene.add(this.floor)
 
-    this.floor2Geometry = new THREE.PlaneBufferGeometry(200, 200, 32, 32)
-    this.floor2Material = new THREE.ShadowMaterial({opacity:.2})
-    this.floor2 = new THREE.Mesh(this.floor2Geometry, this.floor2Material)
-    this.floor2.rotation.x = - Math.PI / 2
-    this.isMobile ? this.floor2.position.y = -4.05 : this.floor2.position.y = -4.05
-    this.floor2.receiveShadow = true
-    this.scene.add(this.floor2)
+    // this.floor2Geometry = new THREE.PlaneBufferGeometry(200, 200, 32, 32)
+    // this.floor2Material = new THREE.ShadowMaterial({opacity:.2})
+    // this.floor2 = new THREE.Mesh(this.floor2Geometry, this.floor2Material)
+    // this.floor2.rotation.x = - Math.PI / 2
+    // this.isMobile ? this.floor2.position.y = -4.05 : this.floor2.position.y = -4.05
+    // this.floor2.receiveShadow = true
+    // this.scene.add(this.floor2)
 
     //MOBILE
     if(this.isMobile){

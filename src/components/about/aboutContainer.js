@@ -74,7 +74,7 @@ class AboutContainer extends Component{
         </div>
 
         <div className="about-card" style={{backgroundColor: `${this.state.resume}`}} onMouseEnter={this.handleMouseEnter.bind(this, "resume")} onMouseLeave={this.handleMouseLeave.bind(this, "resume")}>
-          <a href="http://res.cloudinary.com/dwnehv6tb/image/upload/v1517516369/Cole_Shapiro__Resume_ds9m12.pdf" download>
+          <a href="http://res.cloudinary.com/dwnehv6tb/image/upload/v1519938715/Cole_Shapiro__Resume_ihxxvq.pdf" download>
             <h1 style={{color: `${this.state.randomColors[14]}`}}>Download Resume</h1>
           </a>
         </div>

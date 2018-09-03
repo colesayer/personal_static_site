@@ -480,6 +480,15 @@ body{
   margin: 2%;
 }
 
+.project-page h3{
+  margin-bottom: 0;
+}
+
+.project-page h4{
+  margin-bottom: 1%;
+}
+
+
 .project-links{
   position: relative;
   display: block;

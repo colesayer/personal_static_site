@@ -18,20 +18,19 @@ const Gallerina = () => (
       </ul>
     </div>
     <h3>A lightning fast exhibition design tool for gallerists, curators, and artists.</h3>
+    <h4><a href="https://gallerina.herokuapp.com">https://gallerina.herokuapp.com</a></h4>
     <p>Creating a virtual gallery space is as easy as entering dimensions and uploading images of artworks:</p>
-
     <div className="video-player">
       <video id="project-video" src={video}  playsInline autoPlay loop muted/>
     </div>
-
     <p>Create a gallery, choose wall color, floor texture, and set dimensions:</p>
-      <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517459726/gallerina-gallery_fdrddm.jpg"/>
-      <p>Upload an image of your artworks:</p>
-      <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517459727/gallerina-artworks_e9r1hk.jpg"/>
-      <p>Curate a show:</p>
-      <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517459726/gallerina-3dview_vbxsxf.jpg" />
-      <p>Save your installation:</p>
-      <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517459727/gallerina-scenes_cjkhcw.jpg"/>
+    <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517459726/gallerina-gallery_fdrddm.jpg"/>
+    <p>Upload an image of your artworks:</p>
+    <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517459727/gallerina-artworks_e9r1hk.jpg"/>
+    <p>Curate a show:</p>
+    <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517459726/gallerina-3dview_vbxsxf.jpg" />
+    <p>Save your installation:</p>
+    <img src="http://res.cloudinary.com/dwnehv6tb/image/upload/f_auto/v1517459727/gallerina-scenes_cjkhcw.jpg"/>
     </div>
     {logos(["react", "redux", "threejs", "rails", "jwt", "postgresql", "cloudinary", "css3", "bootstrap"])}
   </div>
