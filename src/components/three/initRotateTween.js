@@ -1,7 +1,6 @@
 import TWEEN from 'tween.js'
 
 export function initRotateTween(object){
-  console.log("initializing rotate", object)
 
   let randomNumber1 = Math.floor((Math.random() * (6 - (2)) + (2)))
   let randomNumber2 = (Math.random() * (6 - (2)) + (2))
@@ -16,8 +15,6 @@ export function initRotateTween(object){
   let direction4 = generateOppositeDirection(direction3)
   let direction5 = generateOppositeDirection(direction4)
   let direction6 = generateOppositeDirection(direction5)
-
-  console.log("original rotation", direction1, direction2)
 
   let tween = new TWEEN.Tween(object.rotation)
     .to({y: `${direction1}` + Math.PI/randomNumber1}, 3500)
