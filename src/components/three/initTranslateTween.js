@@ -10,8 +10,6 @@ export function initTranslateTween(object){
 
   let originalPosition = object.position.y
 
-  console.log("RANDOM NUMBER", randomNumber1, randomNumber2)
-
   let tween = new TWEEN.Tween(object.position)
     .to({ x: object.position.x, y: randomNumber1, z: object.position.z }, 1000)
     .easing(TWEEN.Easing.Quadratic.Out)

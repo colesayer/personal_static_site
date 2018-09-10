@@ -1,41 +1,53 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import Header from '../components/nav/header.js'
-
+import SideLinks from '../components/nav/sideLinks.js'
 import './index.css'
 
-const TemplateWrapper = ({children}) => (
+class TemplateWrapper extends Component{
+  state = {
+    title: true
+  }
+  handleClick = () => {
+    console.log("worked?")
+
+    if(this.state.title){
+      this.setState({
+        title: false
+      }, () => (
+        scrollToComponent(this.info, {
+        offset: 100,
+        align: 'top',
+        duration: 1000
+        })
+      ))
+    } else {
+      this.setState({
+        title: true
+      }, () => (
+        scrollToComponent(this.title, {
+        offset: 0,
+        align: 'bottom',
+        duration: 1000
+        })
+      ))
+    }
+  }
+  render(){
+    return(
       <div>
         <Helmet
           title="Cole Shapiro"
           meta={[
-            { name: 'description', content: 'Sample' },
+            { name: 'description', content: 'Portfolio' },
             { name: 'keywords', content: 'sample, something' },
           ]}
         />
-        <Header />
-
-        <div
-          style={{
-            maxWidth: '100%',
-            maxHeight: '100vh',
-            padding: 0,
-            paddingTop: 0,
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            alignItems: 'center',
-            overflow: 'scroll',
-          }}
-        >
-          {children()}
-
-        </div>
+        {this.props.children()}
       </div>
     )
+  }
+}
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
