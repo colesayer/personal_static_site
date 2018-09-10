@@ -8,6 +8,7 @@ html {
   font-family: 'Rozha One', serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
 }
 
 body{
@@ -37,17 +38,18 @@ padding:0;
   position: relative;
 }
 
-.scroll-up-button{
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border-right: 4px solid #6E6E6E;
-  border-bottom: 4px solid #6E6E6E;
+.scroll-down-button-container{
+  width: 50px;
+  height: 50px;
   position: absolute;
-  top: 20px;
+  bottom: 0;
   left: 50%;
-  -webkit-transform: translateX(-50%) rotate(-135deg);
-  transform: translateX(-50%) rotate(-135deg);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .scroll-down-button{
@@ -56,12 +58,38 @@ padding:0;
   height: 15px;
   border-right: 4px solid #6E6E6E;
   border-bottom: 4px solid #6E6E6E;
-  position: absolute;
+  /*position: absolute;
   bottom: 20px;
-  left: 50%;
-  -webkit-transform: translateX(-50%) rotate(-315deg);
-  transform: translateX(-50%) rotate(-315deg);
+  left: 50%;*/
+  -webkit-transform: rotate(-315deg);
+  transform: rotate(-315deg);
 }
+
+
+.scroll-up-button-container{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.scroll-up-button{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-right: 4px solid #6E6E6E;
+  border-bottom: 4px solid #6E6E6E;
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
 
 .three-canvas{
   width: 100vw;
@@ -92,8 +120,21 @@ padding:0;
 @media screen and (max-width: 600px) {
   .side-links-content{
     padding-left: 20px;
-    padding-top: 50px;
+    padding-top: 40px;
     font-size: 18px;
+  }
+
+  .scroll-down-button-container{
+    bottom: 0;
+  }
+
+  .scroll-down-button{
+    width: 8px;
+    height: 8px;
+  }
+
+  .scroll-up-button-container{
+    top: 0;
   }
 
   .scroll-up-button{
@@ -101,8 +142,5 @@ padding:0;
     height: 8px;
   }
 
-  .scroll-down-button{
-    width: 8px;
-    height: 8px;
-  }
+
 }
