@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import SideLinks from '../components/nav/sideLinks.js'
-import scrollToComponent from 'react-scroll-to-component';
 import './index.css'
 
 class TemplateWrapper extends Component{
