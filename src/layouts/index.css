@@ -25,21 +25,15 @@ padding:0;
 }
 
 .index-wrapper{
-  width: 100%;
-  height: 200vh;
   display: flex;
   flex-direction: column;
 }
 
 .three-placeholder{
-  width: 100%;
-  height: 100vh;
   position: relative;
 }
 
 .side-links-placeholder{
-  width: 100%;
-  height: 100vh;
   position: relative;
 }
 
@@ -82,7 +76,7 @@ padding:0;
 
 .side-links-content{
   padding: 20px;
-  font-size: 50px;
+  font-size: 30px;
   font-family: centuryLT, serif;
 }
 
@@ -97,17 +91,18 @@ padding:0;
 
 @media screen and (max-width: 600px) {
   .side-links-content{
-    padding-top: 40px;
-    font-size: 35px;
+    padding-left: 20px;
+    padding-top: 50px;
+    font-size: 18px;
   }
 
   .scroll-up-button{
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 
   .scroll-down-button{
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 }

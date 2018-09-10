@@ -8,31 +8,6 @@ class TemplateWrapper extends Component{
   state = {
     title: true
   }
-  handleClick = () => {
-    console.log("worked?")
-
-    if(this.state.title){
-      this.setState({
-        title: false
-      }, () => (
-        scrollToComponent(this.info, {
-        offset: 100,
-        align: 'top',
-        duration: 1000
-        })
-      ))
-    } else {
-      this.setState({
-        title: true
-      }, () => (
-        scrollToComponent(this.title, {
-        offset: 0,
-        align: 'bottom',
-        duration: 1000
-        })
-      ))
-    }
-  }
   render(){
     return(
       <div>
